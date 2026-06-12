@@ -4,7 +4,7 @@ import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 import { ProjectCard } from "@/components/ProjectCard";
 import { projects, projectCategories } from "@/lib/projects";
 
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects — ReInvent AI Labs" },
