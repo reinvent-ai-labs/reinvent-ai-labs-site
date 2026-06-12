@@ -9,9 +9,30 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WritingRouteImport } from './routes/writing'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
+import { Route as ProjectsVoiceRouteImport } from './routes/projects.voice'
+import { Route as ProjectsOpsRouteImport } from './routes/projects.ops'
+import { Route as ProjectsDocsRouteImport } from './routes/projects.docs'
 
+const WritingRoute = WritingRouteImport.update({
+  id: '/writing',
+  path: '/writing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -22,35 +43,120 @@ const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   path: '/projects/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsVoiceRoute = ProjectsVoiceRouteImport.update({
+  id: '/projects/voice',
+  path: '/projects/voice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsOpsRoute = ProjectsOpsRouteImport.update({
+  id: '/projects/ops',
+  path: '/projects/ops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsDocsRoute = ProjectsDocsRouteImport.update({
+  id: '/projects/docs',
+  path: '/projects/docs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/writing': typeof WritingRoute
+  '/projects/docs': typeof ProjectsDocsRoute
+  '/projects/ops': typeof ProjectsOpsRoute
+  '/projects/voice': typeof ProjectsVoiceRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/writing': typeof WritingRoute
+  '/projects/docs': typeof ProjectsDocsRoute
+  '/projects/ops': typeof ProjectsOpsRoute
+  '/projects/voice': typeof ProjectsVoiceRoute
   '/projects': typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/writing': typeof WritingRoute
+  '/projects/docs': typeof ProjectsDocsRoute
+  '/projects/ops': typeof ProjectsOpsRoute
+  '/projects/voice': typeof ProjectsVoiceRoute
   '/projects/': typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/writing'
+    | '/projects/docs'
+    | '/projects/ops'
+    | '/projects/voice'
+    | '/projects/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects'
-  id: '__root__' | '/' | '/projects/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/writing'
+    | '/projects/docs'
+    | '/projects/ops'
+    | '/projects/voice'
+    | '/projects'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/writing'
+    | '/projects/docs'
+    | '/projects/ops'
+    | '/projects/voice'
+    | '/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  WritingRoute: typeof WritingRoute
+  ProjectsDocsRoute: typeof ProjectsDocsRoute
+  ProjectsOpsRoute: typeof ProjectsOpsRoute
+  ProjectsVoiceRoute: typeof ProjectsVoiceRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/writing': {
+      id: '/writing'
+      path: '/writing'
+      fullPath: '/writing'
+      preLoaderRoute: typeof WritingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -65,11 +171,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/voice': {
+      id: '/projects/voice'
+      path: '/projects/voice'
+      fullPath: '/projects/voice'
+      preLoaderRoute: typeof ProjectsVoiceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/ops': {
+      id: '/projects/ops'
+      path: '/projects/ops'
+      fullPath: '/projects/ops'
+      preLoaderRoute: typeof ProjectsOpsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects/docs': {
+      id: '/projects/docs'
+      path: '/projects/docs'
+      fullPath: '/projects/docs'
+      preLoaderRoute: typeof ProjectsDocsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  WritingRoute: WritingRoute,
+  ProjectsDocsRoute: ProjectsDocsRoute,
+  ProjectsOpsRoute: ProjectsOpsRoute,
+  ProjectsVoiceRoute: ProjectsVoiceRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport
