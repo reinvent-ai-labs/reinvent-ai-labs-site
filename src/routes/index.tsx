@@ -231,63 +231,99 @@ function Home() {
         </div>
       </div>
 
+      {/* Orgs / Logo wall */}
+      {/* PRIVATE MOCKUP ONLY: replace company logos and fake testimonials before public launch. */}
+      {/* Do not publish this section with fake logos or testimonials. */}
+      <Section className="!py-20">
+        <div className="flex flex-col gap-3 text-center">
+          <div className="mx-auto">
+            <Eyebrow>Designed for</Eyebrow>
+          </div>
+          <h2 className="mx-auto max-w-3xl font-display text-3xl text-foreground md:text-4xl">
+            Built for organizations turning AI into{" "}
+            <span className="text-gradient-tiffany">operational systems.</span>
+          </h2>
+          <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
+            ReInvent AI Labs is designed for teams that need self-hostable AI/data
+            infrastructure, workflow intelligence, and developer-first integration patterns.
+          </p>
+        </div>
+        <div className="mt-14">
+          <LogoMarquee />
+        </div>
+      </Section>
+
       {/* Testimonials */}
+      {/* PRIVATE MOCKUP ONLY: replace fake testimonials before public launch. */}
       <Section>
         <Eyebrow>Early reviewers</Eyebrow>
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-2xl font-display text-3xl text-foreground md:text-4xl">
-            What early reviewers are saying
+            What reviewers are saying
           </h2>
           <p className="max-w-xl text-sm text-muted-foreground">
-            Feedback from engineers, founders, advisors, and operators reviewing the
-            ReInvent AI Labs direction. Placeholder quotes — will be replaced as
-            real reviews come in.
+            Feedback from engineers, founders, advisors, and operators reviewing
+            the ReInvent AI Labs direction.
           </p>
         </div>
-        <div className="mt-10 -mx-6 overflow-x-auto px-6 pb-4 [scrollbar-width:thin]">
-          <div className="flex gap-5">
-            {testimonials.map((t, i) => (
-              <figure
-                key={i}
-                className="card-surface card-hover relative w-[340px] shrink-0 p-7 md:w-[420px]"
-              >
-                <div className="absolute left-0 top-7 h-8 w-1 rounded-r bg-primary" />
-                <div className="font-display text-5xl leading-none text-primary/40">“</div>
-                <blockquote className="mt-2 text-foreground/90">{t.quote}</blockquote>
-                <figcaption className="mt-6 border-t border-border pt-4 text-sm">
-                  <div className="text-foreground">{t.name}</div>
-                  <div className="text-muted-foreground">{t.role}</div>
-                </figcaption>
-              </figure>
-            ))}
+        <div className="mt-10">
+          <TestimonialCarousel items={testimonials} />
+        </div>
+      </Section>
+
+      {/* Future adoption layer */}
+      <Section>
+        <Eyebrow>Adoption layer</Eyebrow>
+        <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
+          Designed for adoption, <span className="text-gradient-tiffany">not dependency.</span>
+        </h2>
+        <p className="mt-6 max-w-3xl text-muted-foreground">
+          ReInvent systems are built to run in the user&apos;s own environment through
+          Docker images, registries, SDKs, APIs, example repos, and cloud-native
+          deployment guides.
+        </p>
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {adoptionLayer.map((a, i) => (
+            <div key={a.title} className="card-surface card-hover p-6">
+              <div className="font-mono text-xs text-primary">A/0{i + 1}</div>
+              <div className="mt-3 font-display text-lg text-foreground">{a.title}</div>
+              <p className="mt-2 text-sm text-muted-foreground">{a.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Implementation proof */}
+      <Section>
+        <div className="card-surface relative overflow-hidden p-10 md:p-14">
+          <div className="absolute inset-0 grid-bg opacity-20" />
+          <div className="relative">
+            <Eyebrow>Implementation proof</Eyebrow>
+            <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
+              Every system ships with{" "}
+              <span className="text-gradient-tiffany">implementation proof.</span>
+            </h2>
+            <p className="mt-6 max-w-3xl text-muted-foreground">
+              Each ReInvent release is designed to include code, documentation,
+              examples, video walkthroughs, and technical writing.
+            </p>
+            <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+              {implementationProof.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-center gap-3 rounded-md border border-border bg-background/40 px-4 py-3 text-sm text-foreground/90 transition hover:border-primary/50"
+                >
+                  <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-primary/40 bg-primary/10 text-primary">
+                    <Check className="h-3.5 w-3.5" />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </Section>
 
-      {/* Orgs marquee */}
-      <Section className="!py-16">
-        <div className="flex flex-col gap-2 text-center">
-          <h2 className="font-display text-2xl text-foreground md:text-3xl">
-            Built for teams that need AI/data systems, not demos.
-          </h2>
-          <p className="mx-auto max-w-2xl text-sm text-muted-foreground">
-            As ReInvent AI Labs grows, this section will highlight organizations,
-            teams, and open-source projects using or reviewing the systems.
-          </p>
-        </div>
-        <div className="mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <div className="animate-marquee flex w-max gap-3">
-            {[...orgLabels, ...orgLabels].map((l, i) => (
-              <div
-                key={i}
-                className="rounded-full border border-border bg-surface px-5 py-2 text-sm text-muted-foreground transition hover:border-primary/50 hover:text-primary"
-              >
-                {l}
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
 
       {/* Thesis */}
       <Section>
