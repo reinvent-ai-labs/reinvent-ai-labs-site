@@ -36,50 +36,89 @@ const earlySignals = [
   { value: "Private build", label: "Status", sub: "Preparing public release" },
 ];
 
-// Replace these placeholder testimonials with real reviewer quotes as they come in.
+// PRIVATE MOCKUP CONTENT — replace all logos and testimonials before public launch.
+// Realistic but fake reviewer identities; no real individuals referenced.
 const testimonials = [
   {
     quote:
-      "ReInvent AI Labs feels less like a student portfolio and more like the foundation of a serious open-source AI systems practice.",
-    name: "Technical Advisor",
-    role: "Enterprise Data & AI Leader",
+      "ReInvent AI Labs has the structure of a serious developer infrastructure practice: clean APIs, strong documentation, and a clear understanding of operational AI.",
+    name: "Managing Director",
+    role: "Data & AI Transformation",
   },
   {
     quote:
-      "The developer-first approach is the right instinct. APIs, docs, and integration patterns make adoption much easier than another closed AI dashboard.",
-    name: "Startup Founder",
-    role: "B2B SaaS Operator",
+      "The strongest part is the developer-first model. Self-hostable systems, example repos, and deployment guides make this much easier to evaluate than another closed AI dashboard.",
+    name: "Principal Engineer",
+    role: "Enterprise Platforms",
   },
   {
     quote:
-      "The visual system is polished, but the real strength is the focus on reusable infrastructure for recurring business problems.",
-    name: "Engineering Reviewer",
-    role: "Software Systems Architect",
+      "This feels like the right bridge between open-source software and practical business workflows. The churn, document intelligence, and voice-agent directions are all commercially relevant.",
+    name: "Startup Advisor",
+    role: "B2B SaaS & Analytics",
   },
   {
     quote:
-      "The ReInvent Voice concept is memorable because it combines strong technical positioning with a clear interaction design language.",
-    name: "Product Reviewer",
-    role: "AI Product Strategy",
+      "The ReInvent Voice concept is memorable because it combines infrastructure thinking with a polished interaction language. It feels technical and product-aware.",
+    name: "Product Leader",
+    role: "AI Workflow Systems",
   },
   {
     quote:
-      "The direction is strong: build substance first, then turn the track record into a serious consulting foundation later.",
+      "Most AI projects stop at the demo. This approach focuses on deployment, integration, observability, and repeatable implementation patterns.",
+    name: "Cloud Architect",
+    role: "Enterprise Systems",
+  },
+  {
+    quote:
+      "ReInvent Metrics could become extremely useful for teams that need modular churn, retention, funnel, and cohort analysis without starting from scratch.",
+    name: "Analytics Director",
+    role: "Customer Intelligence",
+  },
+  {
+    quote:
+      "The visual brand is premium, but the important part is the release standard: repo, docs, Docker, example implementation, video, and technical article.",
+    name: "Open-source Reviewer",
+    role: "Developer Experience",
+  },
+  {
+    quote:
+      "This is the kind of public technical track record that can compound for years into a serious consulting and systems practice.",
     name: "Business Advisor",
-    role: "Data & Transformation Executive",
+    role: "Technology Strategy",
   },
 ];
 
-// Replace these placeholder organization labels with real logos only after permission or public adoption proof.
-const orgLabels = [
-  "Research Labs",
-  "Startup Teams",
-  "Student Organizations",
-  "Small Operators",
-  "Open-source Builders",
-  "Data Teams",
-  "Product Teams",
-  "Workflow Teams",
+const adoptionLayer = [
+  {
+    title: "Self-hostable",
+    body: "Runs in the organization's own cloud or server environment.",
+  },
+  {
+    title: "Registry-ready",
+    body: "Docker images and packages can be pulled directly into existing infrastructure.",
+  },
+  {
+    title: "Developer-first",
+    body: "APIs, SDKs, docs, webhooks, and example repos make integration easier.",
+  },
+  {
+    title: "Evidence-generating",
+    body: "Optional anonymous telemetry, GitHub activity, downloads, and adoption links create a public proof trail.",
+  },
+];
+
+const implementationProof = [
+  "Main GitHub repo",
+  "Example implementation repo",
+  "Docker image / registry package",
+  "README quickstart",
+  "Cloud deployment guide",
+  "Loom walkthrough",
+  "Medium article",
+  "ReInvent website article",
+  "Architecture diagram",
+  "Release notes",
 ];
 
 const painPoints = [
