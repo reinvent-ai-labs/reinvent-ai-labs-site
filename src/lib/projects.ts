@@ -18,6 +18,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "reinvent-signals-atlas",
+    name: "ReInvent Signals — Atlas",
+    tagline:
+      "AI-powered event discovery for churn-ready product analytics.",
+    description:
+      "Atlas scans permitted SaaS product surfaces, discovers user actions, and generates a churn-ready event taxonomy with tracking plans and Postgres-ready schemas.",
+    problem: "Teams don't know what behaviors to track before modeling churn",
+    systemType: "Event discovery & taxonomy generation",
+    techFocus: "Python · LLM · Postgres · Event schema",
+    status: "Prototype",
+    categories: ["Analytics", "Infrastructure"],
+    github: "https://github.com/reinvent-ai-labs/reinvent-signals-atlas",
+    docs: "https://github.com/reinvent-ai-labs/reinvent-signals-atlas#docs",
+    href: "/projects/atlas",
+  },
+  {
     slug: "reinvent-voice",
     name: "ReInvent Voice",
     tagline:
