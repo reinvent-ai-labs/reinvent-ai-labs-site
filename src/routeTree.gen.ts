@@ -18,6 +18,7 @@ import { Route as ProjectsIndexRouteImport } from './routes/projects.index'
 import { Route as ProjectsVoiceRouteImport } from './routes/projects.voice'
 import { Route as ProjectsOpsRouteImport } from './routes/projects.ops'
 import { Route as ProjectsDocsRouteImport } from './routes/projects.docs'
+import { Route as ProjectsAtlasRouteImport } from './routes/projects.atlas'
 
 const WritingRoute = WritingRouteImport.update({
   id: '/writing',
@@ -64,6 +65,11 @@ const ProjectsDocsRoute = ProjectsDocsRouteImport.update({
   path: '/projects/docs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectsAtlasRoute = ProjectsAtlasRouteImport.update({
+  id: '/projects/atlas',
+  path: '/projects/atlas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writing': typeof WritingRoute
+  '/projects/atlas': typeof ProjectsAtlasRoute
   '/projects/docs': typeof ProjectsDocsRoute
   '/projects/ops': typeof ProjectsOpsRoute
   '/projects/voice': typeof ProjectsVoiceRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writing': typeof WritingRoute
+  '/projects/atlas': typeof ProjectsAtlasRoute
   '/projects/docs': typeof ProjectsDocsRoute
   '/projects/ops': typeof ProjectsOpsRoute
   '/projects/voice': typeof ProjectsVoiceRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/writing': typeof WritingRoute
+  '/projects/atlas': typeof ProjectsAtlasRoute
   '/projects/docs': typeof ProjectsDocsRoute
   '/projects/ops': typeof ProjectsOpsRoute
   '/projects/voice': typeof ProjectsVoiceRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/sitemap.xml'
     | '/writing'
+    | '/projects/atlas'
     | '/projects/docs'
     | '/projects/ops'
     | '/projects/voice'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/sitemap.xml'
     | '/writing'
+    | '/projects/atlas'
     | '/projects/docs'
     | '/projects/ops'
     | '/projects/voice'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/sitemap.xml'
     | '/writing'
+    | '/projects/atlas'
     | '/projects/docs'
     | '/projects/ops'
     | '/projects/voice'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WritingRoute: typeof WritingRoute
+  ProjectsAtlasRoute: typeof ProjectsAtlasRoute
   ProjectsDocsRoute: typeof ProjectsDocsRoute
   ProjectsOpsRoute: typeof ProjectsOpsRoute
   ProjectsVoiceRoute: typeof ProjectsVoiceRoute
@@ -212,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsDocsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projects/atlas': {
+      id: '/projects/atlas'
+      path: '/projects/atlas'
+      fullPath: '/projects/atlas'
+      preLoaderRoute: typeof ProjectsAtlasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WritingRoute: WritingRoute,
+  ProjectsAtlasRoute: ProjectsAtlasRoute,
   ProjectsDocsRoute: ProjectsDocsRoute,
   ProjectsOpsRoute: ProjectsOpsRoute,
   ProjectsVoiceRoute: ProjectsVoiceRoute,
