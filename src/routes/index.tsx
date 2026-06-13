@@ -1,8 +1,11 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Check } from "lucide-react";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 import { NeuralBackground } from "@/components/NeuralBackground";
 import { VoiceOrb } from "@/components/VoiceOrb";
 import { ProjectCard } from "@/components/ProjectCard";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import { LogoMarquee } from "@/components/LogoMarquee";
 import { projects } from "@/lib/projects";
 import { posts } from "@/lib/posts";
 
