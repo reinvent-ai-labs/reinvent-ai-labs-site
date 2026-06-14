@@ -144,7 +144,10 @@ function AtlasPage() {
     <PageShell>
       {/* HERO */}
       <Section>
-        <Eyebrow>ReInvent Signals v0.1</Eyebrow>
+        <div className="flex flex-wrap items-center gap-2">
+          <Eyebrow>ReInvent Signals v0.1</Eyebrow>
+          <span className="badge-salmon">Alpha · v0.1</span>
+        </div>
         <div className="mt-6 grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:items-end">
           <div>
             <h1 className="font-display text-6xl text-foreground md:text-7xl">
@@ -281,13 +284,21 @@ function AtlasPage() {
           </div>
         </div>
 
-        {/* progress bar */}
+        {/* progress bar — cyan with salmon leading edge */}
         <div className="mt-8 h-1 w-full overflow-hidden rounded-full bg-border/40">
           <div
-            className="h-full bg-primary transition-all duration-500"
-            style={{ width: `${((active + 1) / steps.length) * 100}%` }}
+            className="h-full transition-all duration-500"
+            style={{
+              width: `${((active + 1) / steps.length) * 100}%`,
+              background:
+                "linear-gradient(90deg, var(--primary) 0%, var(--primary) 75%, var(--accent-salmon) 100%)",
+            }}
           />
         </div>
+
+        {/* thin cyan→salmon gradient accent line */}
+        <div className="mt-3 h-px w-full gradient-line-cyan-salmon" />
+
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.1fr]">
           {/* Timeline */}
@@ -307,7 +318,7 @@ function AtlasPage() {
                     onClick={() => setActive(i)}
                     className={`absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border text-sm font-mono transition ${
                       isActive
-                        ? "border-primary bg-primary text-primary-foreground shadow-[0_0_0_4px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
+                        ? "border-primary bg-primary text-primary-foreground shadow-[0_0_0_4px_color-mix(in_oklab,var(--accent-salmon)_28%,transparent)]"
                         : isDone
                           ? "border-primary/60 bg-primary/15 text-primary"
                           : "border-border bg-surface text-muted-foreground hover:border-primary/40 hover:text-foreground"
@@ -569,8 +580,9 @@ const signals = [
   { label: "Core Usage", color: "bg-primary/15 text-primary border-primary/40" },
   { label: "Collaboration", color: "bg-sky-400/15 text-sky-300 border-sky-400/30" },
   { label: "Value Realization", color: "bg-violet-400/15 text-violet-300 border-violet-400/30" },
-  { label: "Billing Intent", color: "bg-amber-400/15 text-amber-300 border-amber-400/30" },
-  { label: "Friction", color: "bg-rose-400/15 text-rose-300 border-rose-400/30" },
+  // Soft Salmon — warm secondary accent on churn-adjacent signals
+  { label: "Billing Intent", color: "border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 text-[color:var(--accent-salmon)]" },
+  { label: "Friction", color: "border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 text-[color:var(--accent-salmon)]" },
 ];
 
 function PreviewSignals() {
