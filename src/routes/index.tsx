@@ -489,7 +489,7 @@ function Home() {
 
       {/* Lab Notes */}
       <Section>
-        <Eyebrow>Lab notes</Eyebrow>
+        <Eyebrow tone="salmon">Lab notes</Eyebrow>
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <h2 className="font-display text-3xl text-foreground md:text-4xl">
