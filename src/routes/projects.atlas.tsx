@@ -284,13 +284,21 @@ function AtlasPage() {
           </div>
         </div>
 
-        {/* progress bar */}
+        {/* progress bar — cyan with salmon leading edge */}
         <div className="mt-8 h-1 w-full overflow-hidden rounded-full bg-border/40">
           <div
-            className="h-full bg-primary transition-all duration-500"
-            style={{ width: `${((active + 1) / steps.length) * 100}%` }}
+            className="h-full transition-all duration-500"
+            style={{
+              width: `${((active + 1) / steps.length) * 100}%`,
+              background:
+                "linear-gradient(90deg, var(--primary) 0%, var(--primary) 75%, var(--accent-salmon) 100%)",
+            }}
           />
         </div>
+
+        {/* thin cyan→salmon gradient accent line */}
+        <div className="mt-3 h-px w-full gradient-line-cyan-salmon" />
+
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.1fr]">
           {/* Timeline */}
