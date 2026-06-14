@@ -391,7 +391,7 @@ function AtlasPage() {
 
       {/* OUTPUTS */}
       <Section className="!py-16">
-        <Eyebrow>Outputs</Eyebrow>
+        <Eyebrow tone="salmon">Outputs</Eyebrow>
         <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
           What Atlas produces
         </h2>
