@@ -414,7 +414,8 @@ function AtlasPage() {
       <Section>
         <div className="card-surface relative overflow-hidden p-10 text-center md:p-16">
           <div className="absolute inset-0 grid-bg opacity-25" />
-          <div className="absolute -top-40 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+          <div className="absolute -top-40 left-1/3 h-[420px] w-[520px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
+          <div className="absolute -bottom-32 right-1/4 h-[300px] w-[420px] translate-x-1/2 rounded-full bg-[color:var(--accent-salmon)]/15 blur-[110px]" />
           <div className="relative">
             <h2 className="font-display text-3xl text-foreground md:text-5xl">
               Map what matters{" "}
