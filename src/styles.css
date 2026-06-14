@@ -69,6 +69,13 @@
   --border: oklch(0.28 0.01 240 / 60%);
   --input: oklch(0.28 0.01 240);
   --ring: oklch(0.82 0.13 195);
+
+  /* Soft Salmon — secondary warm accent (#FA8072). Use sparingly. */
+  --accent-salmon: #fa8072;
+}
+
+@theme inline {
+  --color-accent-salmon: var(--accent-salmon);
 }
 
 @layer base {
