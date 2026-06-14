@@ -101,6 +101,20 @@
   color: transparent;
 }
 
+@utility text-gradient-warm {
+  background: linear-gradient(110deg, oklch(0.88 0.12 195) 0%, oklch(0.82 0.13 195) 45%, #fa8072 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gradient-salmon {
+  background: linear-gradient(120deg, #ffb3a8, #fa8072);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 @utility glow-tiffany {
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent),
               0 10px 40px -10px color-mix(in oklab, var(--primary) 35%, transparent);
