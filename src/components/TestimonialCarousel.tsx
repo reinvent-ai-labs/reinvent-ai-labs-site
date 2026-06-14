@@ -51,8 +51,16 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
               style={{ width: `${100 / perView}%` }}
             >
               <figure className="card-surface card-hover relative h-full p-7">
-                <div className="absolute left-0 top-7 h-10 w-[2px] rounded-r bg-primary" />
-                <Quote className="h-5 w-5 text-primary/70" />
+                <div
+                  className="absolute left-0 top-7 h-10 w-[2px] rounded-r"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, var(--primary) 0%, #fa8072 100%)",
+                  }}
+                />
+                <Quote
+                  className={`h-5 w-5 ${i % 2 === 1 ? "text-[color:var(--accent-salmon)]/80" : "text-primary/70"}`}
+                />
                 <blockquote className="mt-4 text-foreground/90 leading-relaxed">
                   {t.quote}
                 </blockquote>
@@ -75,7 +83,7 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
               onClick={() => setIndex(i)}
               className={`h-1.5 rounded-full transition-all ${
                 i === clamped
-                  ? "w-8 bg-primary"
+                  ? "w-8 bg-[color:var(--accent-salmon)]"
                   : "w-4 bg-border hover:bg-primary/50"
               }`}
             />

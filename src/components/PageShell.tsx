@@ -28,10 +28,25 @@ export function Section({
   );
 }
 
-export function Eyebrow({ children }: { children: ReactNode }) {
+export function Eyebrow({
+  children,
+  tone = "cyan",
+}: {
+  children: ReactNode;
+  tone?: "cyan" | "salmon";
+}) {
+  const isSalmon = tone === "salmon";
   return (
-    <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-primary">
-      <span className="h-px w-6 bg-primary/60" />
+    <div
+      className={`inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] ${
+        isSalmon ? "text-[color:var(--accent-salmon)]" : "text-primary"
+      }`}
+    >
+      <span
+        className={`h-px w-6 ${
+          isSalmon ? "bg-[color:var(--accent-salmon)]/70" : "bg-primary/60"
+        }`}
+      />
       {children}
     </div>
   );

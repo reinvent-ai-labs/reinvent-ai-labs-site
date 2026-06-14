@@ -46,7 +46,7 @@ export function ProjectCard({ project }: { project: Project }) {
         {project.href ? (
           <Link
             to={project.href}
-            className="text-primary transition-colors hover:text-foreground"
+            className="text-[color:var(--accent-salmon)] transition-colors hover:text-foreground"
           >
             View project →
           </Link>

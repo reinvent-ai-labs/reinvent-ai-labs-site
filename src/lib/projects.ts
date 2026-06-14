@@ -114,7 +114,8 @@ export const projects: Project[] = [
 
 export const statusColor: Record<ProjectStatus, string> = {
   Prototype: "border-primary/40 bg-primary/10 text-primary",
-  Building: "border-amber-400/40 bg-amber-400/10 text-amber-300",
+  Building:
+    "border-[color:var(--accent-salmon)]/50 bg-[color:var(--accent-salmon)]/10 text-[color:var(--accent-salmon)]",
   Planned: "border-border bg-surface text-muted-foreground",
   Researching: "border-violet-400/30 bg-violet-400/10 text-violet-300",
 };

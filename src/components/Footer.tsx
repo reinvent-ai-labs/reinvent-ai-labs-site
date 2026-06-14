@@ -22,11 +22,11 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Elsewhere</div>
+          <div className="text-xs uppercase tracking-[0.2em] text-[color:var(--accent-salmon)]">Elsewhere</div>
           <ul className="mt-4 space-y-2 text-sm">
-            <li><a href="https://github.com/reinvent-ai-labs" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary">GitHub</a></li>
-            <li><a href="https://medium.com/@YOUR_HANDLE" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary">Medium</a></li>
-            <li><a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary">LinkedIn</a></li>
+            <li><a href="https://github.com/reinvent-ai-labs" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-[color:var(--accent-salmon)]">GitHub</a></li>
+            <li><a href="https://medium.com/@YOUR_HANDLE" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-[color:var(--accent-salmon)]">Medium</a></li>
+            <li><a href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noreferrer" className="text-foreground transition-colors hover:text-[color:var(--accent-salmon)]">LinkedIn</a></li>
           </ul>
         </div>
       </div>
