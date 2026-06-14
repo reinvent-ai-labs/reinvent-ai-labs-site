@@ -223,7 +223,7 @@ function AtlasPage() {
       <Section className="!py-12">
         <div className="grid gap-10 md:grid-cols-[1fr_2fr]">
           <div>
-            <Eyebrow>Problem</Eyebrow>
+            <Eyebrow tone="salmon">Problem</Eyebrow>
             <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
               Why Atlas exists
             </h2>
