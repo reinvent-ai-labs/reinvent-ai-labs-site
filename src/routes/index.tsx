@@ -181,14 +181,17 @@ function Home() {
           <Eyebrow>Open-source AI/data systems lab</Eyebrow>
           <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.05] text-foreground md:text-7xl">
             Open-source AI/data systems for{" "}
-            <span className="text-gradient-tiffany">real operational workflows.</span>
+            <span className="text-gradient-warm">real operational workflows.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
             ReInvent AI Labs builds developer-first software, APIs, reference
             architectures, and technical documentation for workflow intelligence,
             document automation, voice agents, and applied machine learning systems.
           </p>
-          <p className="mt-6 font-display text-lg text-primary">Let&apos;s ReInvent the Future.</p>
+          <p className="mt-6 font-display text-lg">
+            <span className="text-primary">Let&apos;s ReInvent</span>{" "}
+            <span className="text-[color:var(--accent-salmon)]">the Future.</span>
+          </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
