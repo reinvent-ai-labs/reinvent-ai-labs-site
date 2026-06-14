@@ -408,7 +408,7 @@ function Home() {
 
       {/* System Library */}
       <Section>
-        <Eyebrow>System library</Eyebrow>
+        <Eyebrow tone="salmon">System library</Eyebrow>
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-2xl font-display text-3xl text-foreground md:text-4xl">
             The ReInvent AI Labs System Library
