@@ -240,11 +240,11 @@ function Home() {
       <Section className="!py-20">
         <div className="flex flex-col gap-3 text-center">
           <div className="mx-auto">
-            <Eyebrow>Designed for</Eyebrow>
+            <Eyebrow tone="salmon">Designed for</Eyebrow>
           </div>
           <h2 className="mx-auto max-w-3xl font-display text-3xl text-foreground md:text-4xl">
             Built for organizations turning AI into{" "}
-            <span className="text-gradient-tiffany">operational systems.</span>
+            <span className="text-gradient-warm">operational systems.</span>
           </h2>
           <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
             ReInvent AI Labs is designed for teams that need self-hostable AI/data
