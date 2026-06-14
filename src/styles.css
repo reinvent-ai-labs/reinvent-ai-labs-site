@@ -147,6 +147,8 @@
     color-mix(in oklab, var(--accent-salmon) 80%, transparent) 80%,
     transparent 100%);
 }
+
+@utility card-surface {
   background: linear-gradient(180deg,
     color-mix(in oklab, var(--surface) 95%, transparent),
     color-mix(in oklab, var(--background) 90%, transparent));
