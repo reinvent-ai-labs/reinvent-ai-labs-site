@@ -559,9 +559,9 @@ function Home() {
         <div className="card-surface relative overflow-hidden p-10 text-center md:p-16">
           <div className="absolute inset-0 grid-bg opacity-20" />
           <div className="relative">
-            <Eyebrow>Contact</Eyebrow>
+            <Eyebrow tone="salmon">Contact</Eyebrow>
             <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
-              Feedback, collaboration, and <span className="text-gradient-tiffany">open-source discussion.</span>
+              Feedback, collaboration, and <span className="text-gradient-warm">open-source discussion.</span>
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-muted-foreground">
               ReInvent AI Labs is currently focused on public open-source systems,
