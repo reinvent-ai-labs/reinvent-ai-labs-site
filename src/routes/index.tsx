@@ -453,9 +453,9 @@ function Home() {
       <Section>
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div>
-            <Eyebrow>Architecture philosophy</Eyebrow>
+            <Eyebrow tone="salmon">Architecture philosophy</Eyebrow>
             <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
-              Built like software, <span className="text-gradient-tiffany">not demos.</span>
+              Built like software, <span className="text-gradient-warm">not demos.</span>
             </h2>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {architecture.map((a) => (
