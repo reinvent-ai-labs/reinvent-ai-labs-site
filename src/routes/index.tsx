@@ -479,7 +479,7 @@ function Home() {
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {releaseStandard.map((r, i) => (
             <div key={r.title} className="card-surface card-hover p-6">
-              <div className="font-mono text-xs text-primary">R/0{i + 1}</div>
+              <div className={`font-mono text-xs ${i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"}`}>R/0{i + 1}</div>
               <div className="mt-3 font-display text-lg text-foreground">{r.title}</div>
               <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
             </div>
