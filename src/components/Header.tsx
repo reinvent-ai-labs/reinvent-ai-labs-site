@@ -34,7 +34,7 @@ export function Header() {
             href="https://github.com/reinvent-ai-labs"
             target="_blank"
             rel="noreferrer"
-            className="rounded-md border border-border px-3 py-1.5 text-sm text-foreground transition hover:border-primary/50 hover:text-primary"
+            className="rounded-md border border-border px-3 py-1.5 text-sm text-foreground transition hover:border-[color:var(--accent-salmon)]/60 hover:text-[color:var(--accent-salmon)]"
           >
             GitHub
           </a>
