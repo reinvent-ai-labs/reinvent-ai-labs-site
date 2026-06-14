@@ -144,7 +144,10 @@ function AtlasPage() {
     <PageShell>
       {/* HERO */}
       <Section>
-        <Eyebrow>ReInvent Signals v0.1</Eyebrow>
+        <div className="flex flex-wrap items-center gap-2">
+          <Eyebrow>ReInvent Signals v0.1</Eyebrow>
+          <span className="badge-salmon">Alpha · v0.1</span>
+        </div>
         <div className="mt-6 grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:items-end">
           <div>
             <h1 className="font-display text-6xl text-foreground md:text-7xl">
