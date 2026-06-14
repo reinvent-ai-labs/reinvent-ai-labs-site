@@ -334,9 +334,9 @@ function Home() {
 
       {/* Thesis */}
       <Section>
-        <Eyebrow>The thesis</Eyebrow>
+        <Eyebrow tone="salmon">The thesis</Eyebrow>
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
-          AI demos are easy. <span className="text-gradient-tiffany">Deployable systems are hard.</span>
+          AI demos are easy. <span className="text-gradient-warm">Deployable systems are hard.</span>
         </h2>
         <p className="mt-6 max-w-3xl text-muted-foreground">
           Most teams do not need another generic chatbot. They need reliable systems
@@ -347,7 +347,11 @@ function Home() {
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {painPoints.map((p, i) => (
             <div key={p.title} className="card-surface card-hover p-6">
-              <div className="font-mono text-xs text-primary">0{i + 1}</div>
+              <div
+                className={`font-mono text-xs ${i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"}`}
+              >
+                0{i + 1}
+              </div>
               <div className="mt-3 font-display text-lg text-foreground">{p.title}</div>
               <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
             </div>
