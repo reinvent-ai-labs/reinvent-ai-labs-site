@@ -83,7 +83,7 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
               onClick={() => setIndex(i)}
               className={`h-1.5 rounded-full transition-all ${
                 i === clamped
-                  ? "w-8 bg-primary"
+                  ? "w-8 bg-[color:var(--accent-salmon)]"
                   : "w-4 bg-border hover:bg-primary/50"
               }`}
             />
