@@ -318,7 +318,7 @@ function AtlasPage() {
                     onClick={() => setActive(i)}
                     className={`absolute left-0 top-0 grid h-10 w-10 place-items-center rounded-full border text-sm font-mono transition ${
                       isActive
-                        ? "border-primary bg-primary text-primary-foreground shadow-[0_0_0_4px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
+                        ? "border-primary bg-primary text-primary-foreground shadow-[0_0_0_4px_color-mix(in_oklab,var(--accent-salmon)_28%,transparent)]"
                         : isDone
                           ? "border-primary/60 bg-primary/15 text-primary"
                           : "border-border bg-surface text-muted-foreground hover:border-primary/40 hover:text-foreground"
