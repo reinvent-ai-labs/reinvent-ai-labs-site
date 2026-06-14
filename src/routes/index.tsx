@@ -367,7 +367,7 @@ function Home() {
             <h2 className="font-display text-3xl text-foreground md:text-4xl">
               ReInvent Voice
             </h2>
-            <p className="mt-2 text-primary">
+            <p className="mt-2 text-[color:var(--accent-salmon)]">
               Open-source voice-agent infrastructure for restaurant ordering workflows.
             </p>
             <p className="mt-6 text-muted-foreground">
