@@ -308,7 +308,7 @@ function Home() {
             <Eyebrow>Implementation proof</Eyebrow>
             <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
               Every system ships with{" "}
-              <span className="text-gradient-tiffany">implementation proof.</span>
+              <span className="text-gradient-warm">implementation proof.</span>
             </h2>
             <p className="mt-6 max-w-3xl text-muted-foreground">
               Each ReInvent release is designed to include code, documentation,
