@@ -601,7 +601,8 @@ function SystemDiagram() {
         <defs>
           <linearGradient id="sd-stroke" x1="0" x2="1">
             <stop offset="0%" stopColor="oklch(0.82 0.13 195)" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="oklch(0.6 0.14 200)" stopOpacity="0.6" />
+            <stop offset="60%" stopColor="oklch(0.6 0.14 200)" stopOpacity="0.6" />
+            <stop offset="100%" stopColor="#fa8072" stopOpacity="0.8" />
           </linearGradient>
         </defs>
         {[
