@@ -513,7 +513,7 @@ function Home() {
           {posts.slice(0, 4).map((p) => (
             <article key={p.slug} className="card-surface card-hover p-6">
               <div className="flex items-center justify-between text-xs">
-                <span className="rounded-full border border-primary/40 bg-primary/10 px-2.5 py-1 uppercase tracking-wider text-primary">
+                <span className="rounded-full border border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 px-2.5 py-1 uppercase tracking-wider text-[color:var(--accent-salmon)]">
                   {p.category}
                 </span>
                 <span className="text-muted-foreground">{p.date}</span>
