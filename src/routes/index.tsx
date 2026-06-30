@@ -6,6 +6,7 @@ import { VoiceOrb } from "@/components/VoiceOrb";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { ReinventStudio } from "@/components/ReinventStudio";
+import { VideoAssetFinder } from "@/components/VideoAssetFinder";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { projects } from "@/lib/projects";
 import { posts } from "@/lib/posts";
