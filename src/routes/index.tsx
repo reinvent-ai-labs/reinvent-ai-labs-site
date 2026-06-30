@@ -235,6 +235,9 @@ function Home() {
         </div>
       </div>
 
+      {/* ReInvent Studio — featured creative AI demo */}
+      <ReinventStudio />
+
       {/* Orgs / Logo wall */}
       {/* PRIVATE MOCKUP ONLY: replace company logos and fake testimonials before public launch. */}
       {/* Do not publish this section with fake logos or testimonials. */}
