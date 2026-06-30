@@ -6,6 +6,7 @@ import { VoiceOrb } from "@/components/VoiceOrb";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { ReinventStudio } from "@/components/ReinventStudio";
+import { VideoAssetFinder } from "@/components/VideoAssetFinder";
 import { LogoMarquee } from "@/components/LogoMarquee";
 import { projects } from "@/lib/projects";
 import { posts } from "@/lib/posts";
@@ -237,6 +238,7 @@ function Home() {
 
       {/* ReInvent Studio — featured creative AI demo */}
       <ReinventStudio />
+      <VideoAssetFinder />
 
       {/* Orgs / Logo wall */}
       {/* PRIVATE MOCKUP ONLY: replace company logos and fake testimonials before public launch. */}
