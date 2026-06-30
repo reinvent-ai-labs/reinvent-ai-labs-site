@@ -238,6 +238,7 @@ function Home() {
 
       {/* ReInvent Studio — featured creative AI demo */}
       <ReinventStudio />
+      <VideoAssetFinder />
 
       {/* Orgs / Logo wall */}
       {/* PRIVATE MOCKUP ONLY: replace company logos and fake testimonials before public launch. */}
