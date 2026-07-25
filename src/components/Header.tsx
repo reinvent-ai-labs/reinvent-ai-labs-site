@@ -14,8 +14,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link to="/" className="flex items-center">
-          <Logo />
+        <Link
+    to="/"
+    aria-label="ReInvent AI Labs home"
+    className="flex items-center"
+  >
+  <Logo className="text-base sm:text-lg" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
