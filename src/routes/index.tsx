@@ -177,65 +177,110 @@ function Home() {
   return (
     <PageShell>
       {/* Hero */}
-      <div className="relative overflow-hidden">
-        <NeuralBackground />
-        <div className="relative mx-auto max-w-7xl px-6 pt-24 pb-20 md:pt-32 md:pb-28">
-          <Eyebrow>Open-source AI/data systems lab</Eyebrow>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.05] text-foreground md:text-7xl">
-            Open-source AI/data systems for{" "}
-            <span className="text-gradient-warm">real operational workflows.</span>
-          </h1>
-          <p className="mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-            ReInvent AI Labs builds developer-first software, APIs, reference
-            architectures, and technical documentation for workflow intelligence,
-            document automation, voice agents, and applied machine learning systems.
-          </p>
-          <p className="mt-6 font-display text-lg">
-            <span className="text-primary">Let&apos;s ReInvent</span>{" "}
-            <span className="text-[color:var(--accent-salmon)]">the Future.</span>
-          </p>
+<div className="relative overflow-hidden">
+  <NeuralBackground />
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link
-              to="/projects"
-              className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
-            >
-              Explore Projects
-            </Link>
-            <Link
-              to="/writing"
-              className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-primary/50 hover:text-primary"
-            >
-              Read Lab Notes
-            </Link>
-            <a
-              href="https://github.com/reinvent-ai-labs"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-primary/50 hover:text-primary"
-            >
-              View GitHub
-            </a>
-          </div>
+  <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-24 md:pb-28 md:pt-32">
+    {/* Main hero layout */}
+    <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:gap-16 xl:gap-24">
+      {/* Left: hero copy */}
+      <div className="min-w-0">
+        <Eyebrow>Open-source AI/data systems lab</Eyebrow>
 
-          {/* Early Signals */}
-          <div className="mt-16">
-            <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              Early Signals
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
-              {earlySignals.map((s) => (
-                <div key={s.label} className="card-surface card-hover p-5">
-                  <div className="font-display text-2xl text-foreground">{s.value}</div>
-                  <div className="mt-1 text-sm text-foreground/90">{s.label}</div>
-                  <div className="mt-1 text-xs text-muted-foreground">{s.sub}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.05] text-foreground md:text-6xl xl:text-7xl">
+          Open-source AI/data systems for{" "}
+          <span className="text-gradient-warm">
+            real operational workflows.
+          </span>
+        </h1>
+
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          ReInvent AI Labs builds developer-first software, APIs, reference
+          architectures, and technical documentation for workflow intelligence,
+          document automation, voice agents, and applied machine learning systems.
+        </p>
+
+        <p className="mt-6 font-display text-lg">
+          <span className="text-primary">Let&apos;s ReInvent</span>{" "}
+          <span className="text-[color:var(--accent-salmon)]">
+            the Future.
+          </span>
+        </p>
+
+        <div className="mt-10 flex flex-wrap gap-3">
+          <Link
+            to="/projects"
+            className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
+          >
+            Explore Projects
+          </Link>
+
+          <Link
+            to="/writing"
+            className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-primary/50 hover:text-primary"
+          >
+            Read Lab Notes
+          </Link>
+
+          <a
+            href="https://github.com/reinvent-ai-labs"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground transition hover:border-primary/50 hover:text-primary"
+          >
+            View GitHub
+          </a>
         </div>
       </div>
 
+      {/* Right: official ReInvent AI Labs logo */}
+      <div className="relative hidden min-h-[460px] items-center justify-center lg:flex">
+        {/* Subtle cyan/salmon glow */}
+        <div
+          aria-hidden="true"
+          className="absolute h-[380px] w-[380px] rounded-full blur-[110px]"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(54, 222, 222, 0.13) 0%, rgba(250, 128, 114, 0.07) 46%, transparent 72%)",
+          }}
+        />
+
+        <img
+          src="/reinvent-ai-labs-logo.png"
+          alt="ReInvent AI Labs neural-network tree logo"
+          className="relative z-10 h-auto w-full max-w-[430px] select-none object-contain mix-blend-screen xl:max-w-[490px]"
+          loading="eager"
+          decoding="async"
+        />
+      </div>
+    </div>
+
+    {/* Early Signals stays below both columns */}
+    <div className="mt-16">
+      <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
+        Early Signals
+      </div>
+
+      <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {earlySignals.map((s) => (
+          <div key={s.label} className="card-surface card-hover p-5">
+            <div className="font-display text-2xl text-foreground">
+              {s.value}
+            </div>
+
+            <div className="mt-1 text-sm text-foreground/90">
+              {s.label}
+            </div>
+
+            <div className="mt-1 text-xs text-muted-foreground">
+              {s.sub}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
       {/* ReInvent Studio — featured creative AI demo */}
       <ReinventStudio />
       <VideoAssetFinder />
