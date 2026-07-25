@@ -37,6 +37,14 @@
 
 :root {
   --radius: 0.625rem;
+  --radius: 0.625rem;
+
+  --brand-cyan: #36dede;
+  --brand-salmon: #fa8072;
+
+  --background: oklch(0.13 0.005 240);
+  --foreground: oklch(0.985 0 0);
+
 
   /* Deep black background, white text, Tiffany blue accent */
   --background: oklch(0.13 0.005 240);
