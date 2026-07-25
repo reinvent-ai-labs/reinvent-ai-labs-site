@@ -14,20 +14,35 @@ import { posts } from "@/lib/posts";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ReInvent AI Labs — Open-source AI/data systems" },
+      {
+        title: "ReInvent AI Labs — Open-source AI/data systems",
+      },
       {
         name: "description",
         content:
           "Open-source AI/data systems, developer-first infrastructure, and reference architectures for real operational workflows. Built by Mahidhar Vuppu.",
       },
-      { property: "og:title", content: "ReInvent AI Labs — Open-source AI/data systems" },
+      {
+        property: "og:title",
+        content: "ReInvent AI Labs — Open-source AI/data systems",
+      },
       {
         property: "og:description",
         content:
           "Open-source AI/data systems for real operational workflows. Let’s ReInvent the Future.",
       },
     ],
+
+    links: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "96x96",
+        href: "/favicon-96x96.png",
+      },
+    ],
   }),
+
   component: Home,
 });
 
