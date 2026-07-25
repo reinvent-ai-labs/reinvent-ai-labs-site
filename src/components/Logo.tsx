@@ -1,27 +1,29 @@
-export function Logo({ className = "" }: { className?: string }) {
+type LogoProps = {
+  className?: string;
+  imageClassName?: string;
+};
+
+export function Logo({
+  className = "",
+  imageClassName = "",
+}: LogoProps) {
   return (
     <span
-      className={`font-display text-base font-semibold tracking-tight ${className}`}
-      style={{ letterSpacing: "-0.01em" }}
+      className={`inline-flex items-center gap-2.5 whitespace-nowrap font-display font-semibold tracking-tight ${className}`}
+      style={{ letterSpacing: "-0.025em" }}
     >
-      <span className="inline-flex items-center gap-2">
-        <span
-          aria-hidden
-          className="relative inline-block h-5 w-5 rounded-[6px] border border-primary/50 bg-primary/15"
-          style={{
-            boxShadow:
-              "inset 0 0 8px oklch(0.82 0.13 195 / 0.4), 0 0 12px -4px #fa8072aa",
-          }}
-        >
-          <span
-            aria-hidden
-            className="absolute -right-0.5 -top-0.5 h-1.5 w-1.5 rounded-full"
-            style={{ background: "#fa8072", boxShadow: "0 0 8px #fa8072cc" }}
-          />
-        </span>
-        <span>
-          Re<span className="text-[color:var(--accent-salmon)]">|</span>Invent
-          <span className="ml-1 text-muted-foreground">AI Labs</span>
+      <img
+        src="/reinvent-ai-labs-logo.png"
+        alt=""
+        aria-hidden="true"
+        className={`h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10 ${imageClassName}`}
+      />
+
+      <span className="inline-flex items-baseline leading-none">
+        <span className="text-gradient-brand">ReInvent</span>
+
+        <span className="ml-1.5 text-white">
+          AI Labs
         </span>
       </span>
     </span>
