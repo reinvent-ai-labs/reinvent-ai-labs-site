@@ -1,11 +1,13 @@
+type NeuralBackgroundProps = {
+  className?: string;
+};
+
 export function NeuralBackground({
   className = "",
-}: {
-  className?: string;
-}) {
+}: NeuralBackgroundProps) {
   return (
     <div
-      aria-hidden
+      aria-hidden="true"
       className={`pointer-events-none absolute inset-0 bg-black ${className}`}
     />
   );
