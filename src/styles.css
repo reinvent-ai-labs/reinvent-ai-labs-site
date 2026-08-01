@@ -9,27 +9,40 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
+
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+
+  --color-accent-salmon: var(--accent-salmon);
+
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
@@ -37,73 +50,95 @@
 
 :root {
   --radius: 0.625rem;
-  --radius: 0.625rem;
 
+  /* ReInvent AI Labs brand colors */
   --brand-cyan: #36dede;
   --brand-salmon: #fa8072;
 
-  --background: oklch(0.13 0.005 240);
-  --foreground: oklch(0.985 0 0);
+  /* Entire site uses true pitch black */
+  --background: #000000;
+  --foreground: #ffffff;
 
+  --surface: #000000;
+  --surface-elevated: #000000;
 
-  /* Deep black background, white text, Tiffany blue accent */
-  --background: oklch(0.13 0.005 240);
-  --foreground: oklch(0.985 0 0);
+  --card: #000000;
+  --card-foreground: #ffffff;
 
-  --surface: oklch(0.17 0.008 240);
-  --surface-elevated: oklch(0.21 0.01 240);
-
-  --card: oklch(0.165 0.008 240);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.17 0.008 240);
-  --popover-foreground: oklch(0.985 0 0);
+  --popover: #000000;
+  --popover-foreground: #ffffff;
 
   /* Tiffany / electric cyan */
-  --primary: oklch(0.82 0.13 195);
-  --primary-foreground: oklch(0.13 0.005 240);
+  --primary: #36dede;
+  --primary-foreground: #000000;
 
-  --secondary: oklch(0.24 0.01 240);
-  --secondary-foreground: oklch(0.985 0 0);
+  --secondary: #000000;
+  --secondary-foreground: #ffffff;
 
-  --muted: oklch(0.22 0.008 240);
-  --muted-foreground: oklch(0.7 0.015 240);
+  --muted: #000000;
+  --muted-foreground: #a6adb7;
 
-  --accent: oklch(0.82 0.13 195);
-  --accent-foreground: oklch(0.13 0.005 240);
+  --accent: #36dede;
+  --accent-foreground: #000000;
 
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.985 0 0);
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
 
-  --border: oklch(0.28 0.01 240 / 60%);
-  --input: oklch(0.28 0.01 240);
-  --ring: oklch(0.82 0.13 195);
+  /* Visible borders without gray surfaces */
+  --border: rgba(255, 255, 255, 0.14);
+  --input: rgba(255, 255, 255, 0.18);
+  --ring: #36dede;
 
-  /* Soft Salmon — secondary warm accent (#FA8072). Use sparingly. */
   --accent-salmon: #fa8072;
-}
-
-@theme inline {
-  --color-accent-salmon: var(--accent-salmon);
 }
 
 @layer base {
   * {
     border-color: var(--color-border);
   }
-  html, body {
-    background-color: var(--color-background);
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+    background: #000000 !important;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  h1, h2, h3, h4 {
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    background-color: #000000 !important;
+  }
+
+  main,
+  header,
+  footer,
+  section {
+    background-color: #000000;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
 }
 
 @utility text-gradient-tiffany {
-  background: linear-gradient(120deg, oklch(0.92 0.1 195), oklch(0.78 0.14 195));
+  background: linear-gradient(
+    120deg,
+    #8fffff,
+    var(--brand-cyan)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -122,27 +157,54 @@
 }
 
 @utility text-gradient-warm {
-  background: linear-gradient(110deg, oklch(0.88 0.12 195) 0%, oklch(0.82 0.13 195) 45%, #fa8072 100%);
+  background: linear-gradient(
+    110deg,
+    #8fffff 0%,
+    var(--brand-cyan) 45%,
+    var(--brand-salmon) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 @utility text-gradient-salmon {
-  background: linear-gradient(120deg, #ffb3a8, #fa8072);
+  background: linear-gradient(
+    120deg,
+    #ffb3a8,
+    var(--brand-salmon)
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 @utility glow-tiffany {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 30%, transparent),
-              0 10px 40px -10px color-mix(in oklab, var(--primary) 35%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(
+      in oklab,
+      var(--primary) 30%,
+      transparent
+    ),
+    0 10px 40px -10px color-mix(
+      in oklab,
+      var(--primary) 35%,
+      transparent
+    );
 }
 
 @utility glow-salmon {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent-salmon) 35%, transparent),
-              0 10px 36px -14px color-mix(in oklab, var(--accent-salmon) 40%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(
+      in oklab,
+      var(--accent-salmon) 35%,
+      transparent
+    ),
+    0 10px 36px -14px color-mix(
+      in oklab,
+      var(--accent-salmon) 40%,
+      transparent
+    );
 }
 
 @utility badge-salmon {
@@ -150,8 +212,16 @@
   align-items: center;
   gap: 0.375rem;
   border-radius: 9999px;
-  border: 1px solid color-mix(in oklab, var(--accent-salmon) 45%, transparent);
-  background: color-mix(in oklab, var(--accent-salmon) 12%, transparent);
+  border: 1px solid color-mix(
+    in oklab,
+    var(--accent-salmon) 45%,
+    transparent
+  );
+  background: color-mix(
+    in oklab,
+    var(--accent-salmon) 12%,
+    transparent
+  );
   color: var(--accent-salmon);
   padding: 0.15rem 0.6rem;
   font-family: var(--font-mono);
@@ -161,57 +231,119 @@
 }
 
 @utility gradient-line-cyan-salmon {
-  background: linear-gradient(90deg,
+  background: linear-gradient(
+    90deg,
     transparent 0%,
-    color-mix(in oklab, var(--primary) 70%, transparent) 35%,
-    color-mix(in oklab, var(--accent-salmon) 80%, transparent) 80%,
-    transparent 100%);
+    color-mix(
+      in oklab,
+      var(--primary) 70%,
+      transparent
+    ) 35%,
+    color-mix(
+      in oklab,
+      var(--accent-salmon) 80%,
+      transparent
+    ) 80%,
+    transparent 100%
+  );
 }
 
 @utility card-surface {
-  background: linear-gradient(180deg,
-    color-mix(in oklab, var(--surface) 95%, transparent),
-    color-mix(in oklab, var(--background) 90%, transparent));
+  background: #000000;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  transition: border-color 200ms ease, box-shadow 250ms ease, transform 250ms ease;
+  transition:
+    border-color 200ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
 }
 
 @utility card-hover {
   &:hover {
-    border-color: color-mix(in oklab, var(--primary) 50%, var(--color-border));
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 20%, transparent),
-                0 18px 50px -20px color-mix(in oklab, var(--primary) 25%, transparent);
+    border-color: color-mix(
+      in oklab,
+      var(--primary) 50%,
+      var(--color-border)
+    );
+
+    box-shadow:
+      0 0 0 1px color-mix(
+        in oklab,
+        var(--primary) 20%,
+        transparent
+      ),
+      0 18px 50px -20px color-mix(
+        in oklab,
+        var(--primary) 25%,
+        transparent
+      );
   }
 }
 
 @utility grid-bg {
-  background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 5%, transparent) 1px, transparent 1px);
-  background-size: 56px 56px;
+  background: #000000;
+  background-image: none;
 }
 
 @keyframes orb-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.06); opacity: 1; }
-}
-@keyframes orb-bounce {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  25% { transform: scale(1.04) rotate(2deg); }
-  75% { transform: scale(0.98) rotate(-2deg); }
-}
-@keyframes orb-wave {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(1.4); }
-}
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
 }
 
-.animate-marquee { animation: marquee 35s linear infinite; }
+@keyframes orb-bounce {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  25% {
+    transform: scale(1.04) rotate(2deg);
+  }
+
+  75% {
+    transform: scale(0.98) rotate(-2deg);
+  }
+}
+
+@keyframes orb-wave {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  50% {
+    transform: scaleY(1.4);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
