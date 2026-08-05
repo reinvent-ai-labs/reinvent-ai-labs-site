@@ -6,6 +6,7 @@ const nav = [
   { to: "/projects", label: "Projects" },
   { to: "/writing", label: "Lab Notes" },
   { to: "/about", label: "About" },
+  { to: "/team", label: "Our Team" },
   { to: "/contact", label: "Contact" },
 ] as const;
 
@@ -14,12 +15,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link
-    to="/"
-    aria-label="ReInvent AI Labs home"
-    className="flex items-center"
-  >
-  <Logo className="text-base sm:text-lg" />
+        <Link to="/" aria-label="ReInvent AI Labs home" className="flex items-center">
+          <Logo className="text-base sm:text-lg" />
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {nav.map((n) => (
@@ -48,7 +45,14 @@ export function Header() {
           onClick={() => setOpen((v) => !v)}
           className="rounded-md border border-border p-2 md:hidden"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
           </svg>
         </button>

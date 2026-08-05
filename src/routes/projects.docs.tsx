@@ -43,15 +43,14 @@ function DocsPage() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <Block title="Problem">
             <p className="text-muted-foreground">
-              Teams have useful knowledge trapped in PDFs, docs, manuals, policies,
-              and internal notes.
+              Teams have useful knowledge trapped in PDFs, docs, manuals, policies, and internal
+              notes.
             </p>
           </Block>
           <Block title="Solution">
             <p className="text-muted-foreground">
-              ReInvent Docs provides open-source document intelligence patterns
-              for ingestion, chunking, retrieval, grounded Q&amp;A, evaluation,
-              and deployment.
+              ReInvent Docs provides open-source document intelligence patterns for ingestion,
+              chunking, retrieval, grounded Q&amp;A, evaluation, and deployment.
             </p>
           </Block>
         </div>
@@ -92,9 +91,24 @@ function DocsPage() {
         <div className="card-surface p-10 text-center">
           <h2 className="font-display text-2xl text-foreground md:text-3xl">More from the lab</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link to="/projects" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">All projects</Link>
-            <Link to="/projects/voice" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">ReInvent Voice</Link>
-            <Link to="/projects/ops" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">ReInvent Ops</Link>
+            <Link
+              to="/projects"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
+              All projects
+            </Link>
+            <Link
+              to="/projects/voice"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
+              Rowan
+            </Link>
+            <Link
+              to="/projects/ops"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
+              ReInvent Ops
+            </Link>
           </div>
         </div>
       </Section>

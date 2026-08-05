@@ -5,17 +5,17 @@ import { VoiceOrb } from "@/components/VoiceOrb";
 export const Route = createFileRoute("/projects/voice")({
   head: () => ({
     meta: [
-      { title: "ReInvent Voice — Open-source voice-agent infrastructure" },
+      { title: "Rowan — Conversational operations by ReInvent AI Labs" },
       {
         name: "description",
         content:
-          "ReInvent Voice is open-source voice-agent infrastructure for restaurant ordering workflows. API-first, integration-ready, developer-focused.",
+          "Rowan turns business calls into validated actions, structured records, and operational intelligence.",
       },
-      { property: "og:title", content: "ReInvent Voice — ReInvent AI Labs" },
+      { property: "og:title", content: "Rowan — ReInvent AI Labs" },
       {
         property: "og:description",
         content:
-          "Open-source voice-agent infrastructure for restaurant ordering workflows.",
+          "Conversational operations for ordering, scheduling, intake, and service workflows.",
       },
     ],
   }),
@@ -41,19 +41,19 @@ function VoicePage() {
   return (
     <PageShell>
       <Section>
-        <Eyebrow>Project · Voice agents</Eyebrow>
+        <Eyebrow>Primary product · Voice AI</Eyebrow>
         <div className="mt-6 grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start">
           <div>
             <h1 className="font-display text-5xl text-foreground md:text-6xl">
-              ReInvent <span className="text-gradient-tiffany">Voice</span>
+              <span className="text-gradient-tiffany">Rowan</span>
             </h1>
             <p className="mt-4 text-lg text-primary">
-              Open-source voice-agent infrastructure for restaurant ordering workflows.
+              Business calls converted into validated actions and operational intelligence.
             </p>
             <p className="mt-6 text-muted-foreground">
-              Restaurants and small service businesses need voice automation that
-              fits into existing workflows without forcing them into a closed
-              platform or generic chatbot interface.
+              Rowan is designed for organizations with repetitive but important phone workflows. It
+              combines structured state, validation, integrations, analytics, and dependable human
+              escalation in one conversational operations layer.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -90,16 +90,14 @@ function VoicePage() {
         <div className="grid gap-6 md:grid-cols-2">
           <Block title="Problem">
             <p className="text-muted-foreground">
-              Restaurants and small service businesses need voice automation that
-              fits into existing workflows without forcing them into a closed
-              platform or generic chatbot interface.
+              Restaurants and small service businesses need voice automation that fits into existing
+              workflows without forcing them into a closed platform or generic chatbot interface.
             </p>
           </Block>
           <Block title="Solution">
             <p className="text-muted-foreground">
-              ReInvent Voice provides an open-source voice-agent engine with
-              API-first design, workflow state management, menu/order understanding,
-              optional UI components, and integration-ready architecture.
+              Rowan provides a voice-agent engine with API-first design, workflow state management,
+              menu/order understanding, optional UI components, and integration-ready architecture.
             </p>
           </Block>
         </div>
@@ -109,8 +107,14 @@ function VoicePage() {
         <Eyebrow>System overview</Eyebrow>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           {[
-            { title: "Voice ingest", body: "Real-time audio capture via WebRTC and streaming ASR." },
-            { title: "Workflow engine", body: "Stateful conversation graph with menu/order intents." },
+            {
+              title: "Voice ingest",
+              body: "Real-time audio capture via WebRTC and streaming ASR.",
+            },
+            {
+              title: "Workflow engine",
+              body: "Stateful conversation graph with menu/order intents.",
+            },
             { title: "Integration layer", body: "Webhooks, REST APIs, and SDK-friendly outputs." },
           ].map((b) => (
             <div key={b.title} className="card-surface card-hover p-6">
@@ -126,7 +130,10 @@ function VoicePage() {
         <div className="mt-6 card-surface overflow-hidden">
           <div className="divide-y divide-border font-mono text-sm">
             {endpoints.map((e) => (
-              <div key={e.path} className="flex flex-col gap-2 p-4 md:flex-row md:items-center md:gap-6">
+              <div
+                key={e.path}
+                className="flex flex-col gap-2 p-4 md:flex-row md:items-center md:gap-6"
+              >
                 <span className="inline-flex w-fit rounded-md border border-primary/40 bg-primary/10 px-2 py-0.5 text-[11px] text-primary">
                   {e.method}
                 </span>
@@ -139,19 +146,34 @@ function VoicePage() {
       </Section>
 
       <Section className="!py-12">
-        <Eyebrow>Example restaurant workflow</Eyebrow>
-        <div className="mt-6 grid gap-4 md:grid-cols-4">
-          {[
-            "Caller dials in",
-            "Voice agent parses menu intent",
-            "Order is structured & confirmed",
-            "Webhook fires to POS / kitchen",
-          ].map((step, i) => (
-            <div key={step} className="card-surface card-hover p-5">
-              <div className="font-mono text-xs text-primary">STEP 0{i + 1}</div>
-              <div className="mt-3 text-foreground">{step}</div>
-            </div>
-          ))}
+        <Eyebrow>Operational workflow</Eyebrow>
+        <div className="mt-6 overflow-hidden rounded-lg border border-border bg-background/50">
+          <div className="grid md:grid-cols-4">
+            {[
+              ["Receive", "Voice or phone input"],
+              ["Understand", "Intent + business context"],
+              ["Validate", "Structured action + confirmation"],
+              ["Execute", "Integration + analytics"],
+            ].map((step, i) => (
+              <div
+                key={step[0]}
+                className={`relative p-6 ${i > 0 ? "border-t border-border md:border-l md:border-t-0" : ""}`}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary">
+                    0{i + 1}
+                  </div>
+                  {i < 3 ? (
+                    <span className="hidden font-mono text-xs text-muted-foreground md:block">
+                      →
+                    </span>
+                  ) : null}
+                </div>
+                <div className="mt-8 font-display text-lg text-foreground">{step[0]}</div>
+                <div className="mt-2 text-xs leading-5 text-muted-foreground">{step[1]}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -161,15 +183,15 @@ function VoicePage() {
           <div className="card-surface p-6">
             <div className="font-display text-lg text-foreground">Drop-in API</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Plug ReInvent Voice into your existing backend through REST and
-              webhook surfaces — no UI lock-in.
+              Plug Rowan into your existing backend through REST and webhook surfaces — no UI
+              lock-in.
             </p>
           </div>
           <div className="card-surface p-6">
             <div className="font-display text-lg text-foreground">Optional UI kit</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Geometric voice-state components you can render in your own admin
-              dashboard or customer interface.
+              Geometric voice-state components you can render in your own admin dashboard or
+              customer interface.
             </p>
           </div>
         </div>
@@ -193,13 +215,22 @@ function VoicePage() {
             Explore the other ReInvent systems
           </h2>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link to="/projects" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">
+            <Link
+              to="/projects"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
               All projects
             </Link>
-            <Link to="/projects/ops" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">
+            <Link
+              to="/projects/ops"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
               ReInvent Ops
             </Link>
-            <Link to="/projects/docs" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">
+            <Link
+              to="/projects/docs"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
               ReInvent Docs
             </Link>
           </div>
