@@ -45,15 +45,14 @@ function OpsPage() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <Block title="Problem">
             <p className="text-muted-foreground">
-              Small teams often rely on scattered documents, spreadsheets, and
-              recurring manual reports. AI tools are common, but deployable
-              workflow systems are still difficult.
+              Small teams often rely on scattered documents, spreadsheets, and recurring manual
+              reports. AI tools are common, but deployable workflow systems are still difficult.
             </p>
           </Block>
           <Block title="Solution">
             <p className="text-muted-foreground">
-              ReInvent Ops is a reference architecture for turning operational
-              knowledge into searchable, automated, and reportable workflows.
+              ReInvent Ops is a reference architecture for turning operational knowledge into
+              searchable, automated, and reportable workflows.
             </p>
           </Block>
         </div>
@@ -96,9 +95,24 @@ function OpsPage() {
             See the rest of the system library
           </h2>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link to="/projects" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">All projects</Link>
-            <Link to="/projects/voice" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">ReInvent Voice</Link>
-            <Link to="/projects/docs" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">ReInvent Docs</Link>
+            <Link
+              to="/projects"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
+              All projects
+            </Link>
+            <Link
+              to="/projects/voice"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
+              Rowan
+            </Link>
+            <Link
+              to="/projects/docs"
+              className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
+            >
+              ReInvent Docs
+            </Link>
           </div>
         </div>
       </Section>
