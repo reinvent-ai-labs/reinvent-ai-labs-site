@@ -1,174 +1,219 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check } from "lucide-react";
-import { Eyebrow, PageShell, Section } from "@/components/PageShell";
+import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 import { VoiceOrb } from "@/components/VoiceOrb";
 
 export const Route = createFileRoute("/projects/voice")({
   head: () => ({
     meta: [
-      { title: "Rowan — Conversational operations by ReInvent AI Labs" },
+      { title: "ReInvent Voice — Open-source voice-agent infrastructure" },
       {
         name: "description",
         content:
-          "Rowan is ReInvent AI Labs’ conversational AI and voice-agent platform, currently in development and validation.",
+          "ReInvent Voice is open-source voice-agent infrastructure for restaurant ordering workflows. API-first, integration-ready, developer-focused.",
       },
-      { property: "og:title", content: "Rowan — ReInvent AI Labs" },
+      { property: "og:title", content: "ReInvent Voice — ReInvent AI Labs" },
       {
         property: "og:description",
         content:
-          "Every conversation completed. Every insight captured. Every resource accounted for.",
+          "Open-source voice-agent infrastructure for restaurant ordering workflows.",
       },
     ],
   }),
-  component: RowanPage,
+  component: VoicePage,
 });
 
-const capabilities = [
-  "Answer repetitive operational questions",
-  "Collect customer and request information",
-  "Schedule, reserve, or capture an order workflow",
-  "Transfer complex or uncertain calls to a human",
-  "Transcribe, summarize, and classify conversations",
-  "Convert conversations into structured analytics",
+const endpoints = [
+  { method: "POST", path: "/v1/conversations", desc: "Create a new voice conversation" },
+  { method: "POST", path: "/v1/conversations/{id}/message", desc: "Append a user turn" },
+  { method: "POST", path: "/v1/orders/parse", desc: "Parse spoken order into structured items" },
+  { method: "GET", path: "/v1/orders/{id}", desc: "Retrieve an order state" },
+  { method: "POST", path: "/v1/webhooks/order.created", desc: "Webhook fired on order creation" },
 ];
 
-const flow = [
-  "Customer conversation",
-  "Session state",
-  "Structured extraction",
-  "Schema validation",
-  "Clarification",
-  "Customer confirmation",
-  "Business action",
+const roadmap = [
+  { phase: "v0", item: "Prototype voice loop + workflow states" },
+  { phase: "v0.1", item: "Order parsing + structured menu schema" },
+  { phase: "v0.2", item: "Webhook integrations + reference UI" },
+  { phase: "v1", item: "Evaluation harness + deployment kit" },
 ];
 
-function RowanPage() {
+function VoicePage() {
   return (
     <PageShell>
       <Section>
-        <div className="grid items-center gap-14 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
+        <Eyebrow>Project · Voice agents</Eyebrow>
+        <div className="mt-6 grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start">
           <div>
-            <div className="flex flex-wrap items-center gap-3">
-              <Eyebrow>Flagship product</Eyebrow>
-              <span className="rounded-full border border-white/15 px-3 py-1 text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-                In development + validation
-              </span>
-            </div>
-            <h1 className="mt-7 font-display text-6xl font-semibold leading-none text-foreground md:text-8xl">
-              <span className="text-gradient-tiffany">Rowan.</span>
+            <h1 className="font-display text-5xl text-foreground md:text-6xl">
+              ReInvent <span className="text-gradient-tiffany">Voice</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-xl leading-8 text-foreground/85 md:text-2xl md:leading-9">
-              Business calls converted into completed actions and structured operational
-              intelligence.
+            <p className="mt-4 text-lg text-primary">
+              Open-source voice-agent infrastructure for restaurant ordering workflows.
             </p>
-            <p className="mt-6 max-w-2xl leading-7 text-muted-foreground">
-              Rowan is ReInvent AI Labs’ first conversational AI and voice-agent product direction,
-              designed for organizations handling repetitive but operationally important phone
-              conversations.
+            <p className="mt-6 text-muted-foreground">
+              Restaurants and small service businesses need voice automation that
+              fits into existing workflows without forcing them into a closed
+              platform or generic chatbot interface.
             </p>
-            <Link
-              to="/contact"
-              className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-black"
-            >
-              Discuss a Rowan workflow <ArrowRight className="h-4 w-4" />
-            </Link>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="https://github.com/reinvent-ai-labs/reinvent-voice"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://github.com/reinvent-ai-labs/reinvent-voice#docs"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground hover:border-primary/50 hover:text-primary"
+              >
+                Docs
+              </a>
+              <a
+                href="https://github.com/reinvent-ai-labs/reinvent-voice#demo"
+                target="_blank"
+                rel="noreferrer"
+                className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground hover:border-primary/50 hover:text-primary"
+              >
+                Demo
+              </a>
+            </div>
           </div>
           <VoiceOrb />
         </div>
       </Section>
 
-      <section className="border-y border-white/10">
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-24 md:py-32 lg:grid-cols-2 lg:gap-24 lg:px-8">
-          <div>
-            <Eyebrow tone="salmon">The problem</Eyebrow>
-            <h2 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-5xl">
-              A missed call is often a missed action.
-            </h2>
-            <p className="mt-6 leading-7 text-muted-foreground">
-              Restaurants, clinics, pharmacies, service businesses, and appointment-based
-              organizations repeatedly interrupt employees to answer the same questions, collect the
-              same details, and complete the same requests. When the line is not answered, the
-              opportunity can disappear.
+      <Section className="!py-12">
+        <div className="grid gap-6 md:grid-cols-2">
+          <Block title="Problem">
+            <p className="text-muted-foreground">
+              Restaurants and small service businesses need voice automation that
+              fits into existing workflows without forcing them into a closed
+              platform or generic chatbot interface.
             </p>
-          </div>
-          <div>
-            <Eyebrow>The product thesis</Eyebrow>
-            <h2 className="mt-5 font-display text-4xl leading-tight text-foreground md:text-5xl">
-              The voice is infrastructure. The workflow is the value.
-            </h2>
-            <p className="mt-6 leading-7 text-muted-foreground">
-              Rowan’s durable value is designed to come from workflow understanding, structured
-              state, validation, business integrations, analytics, reliability, and measurable
-              outcomes—not dependence on a single model provider.
+          </Block>
+          <Block title="Solution">
+            <p className="text-muted-foreground">
+              ReInvent Voice provides an open-source voice-agent engine with
+              API-first design, workflow state management, menu/order understanding,
+              optional UI components, and integration-ready architecture.
             </p>
-          </div>
+          </Block>
         </div>
-      </section>
+      </Section>
 
-      <Section>
-        <Eyebrow>Potential capabilities</Eyebrow>
-        <h2 className="mt-5 max-w-3xl font-display text-4xl text-foreground md:text-5xl">
-          From conversation to operational completion.
-        </h2>
-        <div className="mt-12 grid gap-3 md:grid-cols-2">
-          {capabilities.map((capability) => (
-            <div key={capability} className="premium-panel flex items-center gap-4 p-5">
-              <Check className="h-4 w-4 shrink-0 text-primary" />
-              <span className="text-sm text-foreground/85">{capability}</span>
+      <Section className="!py-12">
+        <Eyebrow>System overview</Eyebrow>
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          {[
+            { title: "Voice ingest", body: "Real-time audio capture via WebRTC and streaming ASR." },
+            { title: "Workflow engine", body: "Stateful conversation graph with menu/order intents." },
+            { title: "Integration layer", body: "Webhooks, REST APIs, and SDK-friendly outputs." },
+          ].map((b) => (
+            <div key={b.title} className="card-surface card-hover p-6">
+              <div className="font-display text-lg text-foreground">{b.title}</div>
+              <p className="mt-2 text-sm text-muted-foreground">{b.body}</p>
             </div>
           ))}
         </div>
-        <p className="mt-6 text-xs leading-5 text-muted-foreground">
-          These are planned capabilities that depend on the business and implementation stage; they
-          are not a claim of full production maturity.
-        </p>
       </Section>
 
-      <section className="border-y border-white/10">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32 lg:px-8">
-          <Eyebrow tone="salmon">Validated action flow</Eyebrow>
-          <h2 className="mt-5 max-w-4xl font-display text-4xl leading-tight text-foreground md:text-5xl">
-            Raw conversation never becomes a transaction by accident.
-          </h2>
-          <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
-            {flow.map((step, index) => (
-              <div key={step} className="bg-black p-6">
-                <span className="font-mono text-xs text-primary">0{index + 1}</span>
-                <div className="mt-8 font-display text-lg text-foreground">{step}</div>
+      <Section className="!py-12">
+        <Eyebrow>API concepts</Eyebrow>
+        <div className="mt-6 card-surface overflow-hidden">
+          <div className="divide-y divide-border font-mono text-sm">
+            {endpoints.map((e) => (
+              <div key={e.path} className="flex flex-col gap-2 p-4 md:flex-row md:items-center md:gap-6">
+                <span className="inline-flex w-fit rounded-md border border-primary/40 bg-primary/10 px-2 py-0.5 text-[11px] text-primary">
+                  {e.method}
+                </span>
+                <span className="text-foreground">{e.path}</span>
+                <span className="ml-auto text-xs text-muted-foreground md:text-sm">{e.desc}</span>
               </div>
             ))}
           </div>
-          <p className="mt-7 max-w-3xl text-sm leading-7 text-muted-foreground">
-            The intended architecture extracts structured information, validates it against explicit
-            schemas, requests clarification when required, and asks the customer to confirm before a
-            transaction is submitted.
-          </p>
         </div>
-      </section>
+      </Section>
+
+      <Section className="!py-12">
+        <Eyebrow>Example restaurant workflow</Eyebrow>
+        <div className="mt-6 grid gap-4 md:grid-cols-4">
+          {[
+            "Caller dials in",
+            "Voice agent parses menu intent",
+            "Order is structured & confirmed",
+            "Webhook fires to POS / kitchen",
+          ].map((step, i) => (
+            <div key={step} className="card-surface card-hover p-5">
+              <div className="font-mono text-xs text-primary">STEP 0{i + 1}</div>
+              <div className="mt-3 text-foreground">{step}</div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section className="!py-12">
+        <Eyebrow>Developer integration</Eyebrow>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="card-surface p-6">
+            <div className="font-display text-lg text-foreground">Drop-in API</div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Plug ReInvent Voice into your existing backend through REST and
+              webhook surfaces — no UI lock-in.
+            </p>
+          </div>
+          <div className="card-surface p-6">
+            <div className="font-display text-lg text-foreground">Optional UI kit</div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Geometric voice-state components you can render in your own admin
+              dashboard or customer interface.
+            </p>
+          </div>
+        </div>
+      </Section>
+
+      <Section className="!py-12">
+        <Eyebrow>Roadmap</Eyebrow>
+        <div className="mt-6 card-surface divide-y divide-border">
+          {roadmap.map((r) => (
+            <div key={r.phase} className="flex items-center gap-6 p-5">
+              <span className="font-mono text-sm text-primary">{r.phase}</span>
+              <span className="text-foreground">{r.item}</span>
+            </div>
+          ))}
+        </div>
+      </Section>
 
       <Section>
-        <div className="premium-panel p-8 md:p-14">
-          <Eyebrow>Current focus</Eyebrow>
-          <div className="mt-5 grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div>
-              <h2 className="max-w-3xl font-display text-4xl text-foreground md:text-5xl">
-                Prove one workflow. Measure one result. Expand with evidence.
-              </h2>
-              <p className="mt-6 max-w-3xl leading-7 text-muted-foreground">
-                Rowan is currently in development and validation. The immediate goal is a narrow,
-                supervised workflow with reliable state, clear failure handling, measurable value,
-                and human accountability.
-              </p>
-            </div>
-            <Link
-              to="/projects"
-              className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground"
-            >
-              View all products <ArrowRight className="h-4 w-4" />
+        <div className="card-surface p-10 text-center">
+          <h2 className="font-display text-2xl text-foreground md:text-3xl">
+            Explore the other ReInvent systems
+          </h2>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Link to="/projects" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">
+              All projects
+            </Link>
+            <Link to="/projects/ops" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">
+              ReInvent Ops
+            </Link>
+            <Link to="/projects/docs" className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary">
+              ReInvent Docs
             </Link>
           </div>
         </div>
       </Section>
     </PageShell>
+  );
+}
+
+function Block({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="card-surface p-6">
+      <div className="text-xs uppercase tracking-[0.25em] text-primary">{title}</div>
+      <div className="mt-3">{children}</div>
+    </div>
   );
 }

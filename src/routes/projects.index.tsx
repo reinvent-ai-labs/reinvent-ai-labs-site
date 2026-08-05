@@ -11,12 +11,12 @@ export const Route = createFileRoute("/projects/")({
       {
         name: "description",
         content:
-          "ReInvent AI Labs product directions across conversational operations, creative workflows, analytics, and responsible automation.",
+          "Open-source AI/data system projects: voice agents, workflow intelligence, document AI, analytics, and evaluation tooling.",
       },
       { property: "og:title", content: "Projects — ReInvent AI Labs" },
       {
         property: "og:description",
-        content: "Explore the ReInvent AI Labs product portfolio.",
+        content: "The ReInvent AI Labs system library: voice, ops, docs, metrics, and evals.",
       },
     ],
   }),
@@ -25,23 +25,23 @@ export const Route = createFileRoute("/projects/")({
 
 function ProjectsPage() {
   const [active, setActive] = useState<string | null>(null);
-  const filtered = active ? projects.filter((p) => p.categories.includes(active)) : projects;
+  const filtered = active
+    ? projects.filter((p) => p.categories.includes(active))
+    : projects;
 
   return (
     <PageShell>
       <Section>
-        <Eyebrow>Product portfolio</Eyebrow>
-        <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] text-foreground md:text-7xl">
-          Systems organized by the problem—not by the{" "}
-          <span className="text-gradient-tiffany">novelty.</span>
+        <Eyebrow>System library</Eyebrow>
+        <h1 className="mt-4 max-w-3xl font-display text-4xl text-foreground md:text-6xl">
+          Open-source AI/data systems, <span className="text-gradient-tiffany">organized by problem.</span>
         </h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground">
-          ReInvent turns repeated, validated operational problems into reusable products. Every
-          direction is labeled honestly by stage; capability claims grow only when the evidence
-          does.
+        <p className="mt-6 max-w-2xl text-muted-foreground">
+          Each project ships with a problem statement, system type, tech focus,
+          GitHub repository, docs, and (where available) a demo.
         </p>
 
-        <div className="mt-12 flex flex-wrap gap-2">
+        <div className="mt-10 flex flex-wrap gap-2">
           <button
             onClick={() => setActive(null)}
             className={`rounded-full border px-3.5 py-1.5 text-xs uppercase tracking-wider transition ${
@@ -67,7 +67,7 @@ function ProjectsPage() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((p) => (
             <ProjectCard key={p.slug} project={p} />
           ))}
