@@ -1,236 +1,165 @@
-import { useState } from "react";
-import { Sparkles, Wand2, Palette, LineChart, ArrowRight } from "lucide-react";
+import { ArrowRight, Images, Search, SlidersHorizontal, Users } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
-const exampleBrief = `Coffee shop launching a summer matcha drink.
-Audience: college students.
-Vibe: playful, premium, Instagram/TikTok.
-Offer: Buy one, get one Friday.`;
-
-const outputCards = [
+const workflow = [
   {
-    label: "Campaign Angle",
-    body: "Your Friday Matcha Ritual",
-    tone: "cyan",
+    icon: SlidersHorizontal,
+    title: "Human-led culling",
+    body: "Keep, reject, maybe, and rating decisions stay in the photographer’s hands.",
   },
   {
-    label: "Visual Direction",
-    body: "Bright green matcha swirl, soft coral background, playful student lifestyle energy.",
-    tone: "salmon",
+    icon: Search,
+    title: "Semantic retrieval",
+    body: "Find people, moments, and visual context without manually reopening every folder.",
   },
   {
-    label: "Reel Script",
-    body: "POV: You survived the week and your matcha bestie is waiting.",
-    tone: "violet",
-  },
-  {
-    label: "Caption",
-    body: "Friday tastes better in green. Bring a friend — BOGO Matcha all day.",
-    tone: "cyan",
-  },
-  {
-    label: "A/B Test",
-    body: "Variant A: lifestyle reel. Variant B: static discount post. Track CTR, saves, shares, and redemptions.",
-    tone: "salmon",
-  },
-] as const;
-
-const features = [
-  {
-    icon: Wand2,
-    title: "Creative Direction",
-    body: "Generate campaign angles, captions, scripts, and visual concepts from one plain-language brief.",
-  },
-  {
-    icon: Palette,
-    title: "Media-Ready Outputs",
-    body: "Move beyond static infographics with social posts, short-form video ideas, and animated ad directions.",
-  },
-  {
-    icon: LineChart,
-    title: "Built for Measurement",
-    body: "Every campaign includes A/B test ideas, target metrics, and experiment hypotheses.",
+    icon: Users,
+    title: "Preference learning",
+    body: "Learn from accepted decisions to accelerate future sessions without flattening taste.",
   },
 ];
 
-function toneClasses(tone: "cyan" | "salmon" | "violet") {
-  if (tone === "salmon")
-    return "border-[color:var(--accent-salmon)]/30 bg-[color:var(--accent-salmon)]/8 text-[color:var(--accent-salmon)]";
-  if (tone === "violet")
-    return "border-violet-400/30 bg-violet-400/8 text-violet-300";
-  return "border-primary/30 bg-primary/8 text-primary";
-}
+const sessionRows = [
+  ["1,312", "images ingested"],
+  ["468", "selection target"],
+  ["3", "context groups"],
+  ["Human", "final authority"],
+];
 
 export function ReinventStudio() {
-  const [brief, setBrief] = useState(exampleBrief);
-  const [revealed, setRevealed] = useState(false);
-
   return (
-    <section className="relative overflow-hidden">
-      {/* Bright gradient backdrop — keeps dark base, layers studio glow */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div
-          className="absolute -top-32 left-1/2 h-[520px] w-[820px] -translate-x-1/2 rounded-full opacity-50 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(closest-side, color-mix(in oklab, var(--primary) 35%, transparent), transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute right-[8%] top-1/3 h-[380px] w-[520px] rounded-full opacity-40 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(closest-side, #fa807255, transparent 70%)",
-          }}
-        />
-        <div
-          className="absolute -bottom-24 left-[6%] h-[360px] w-[480px] rounded-full opacity-35 blur-3xl"
-          style={{
-            background:
-              "radial-gradient(closest-side, #7c83ff55, transparent 70%)",
-          }}
-        />
-      </div>
-
-      {/* Floating geometric accents */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-[6%] top-24 h-2 w-2 rounded-full bg-primary/70 animate-pulse" />
-        <div className="absolute right-[12%] top-40 h-1.5 w-1.5 rounded-full bg-[color:var(--accent-salmon)] animate-pulse" />
-        <div
-          className="absolute left-[18%] bottom-24 h-3 w-3 rotate-45 border border-primary/40"
-          style={{ animation: "orb-bounce 6s ease-in-out infinite" }}
-        />
-        <div
-          className="absolute right-[20%] bottom-32 h-2.5 w-2.5 rounded-full border border-[color:var(--accent-salmon)]/60"
-          style={{ animation: "orb-pulse 4s ease-in-out infinite" }}
-        />
-      </div>
-
-      <div className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32">
-        {/* Heading */}
-        <div className="relative">
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-mono uppercase tracking-[0.2em] text-primary">
-            <Sparkles className="h-3.5 w-3.5" />
-            New Demo
+    <section className="border-y border-white/10 bg-black">
+      <div className="mx-auto w-full max-w-7xl px-6 py-24 md:py-32 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-end lg:gap-20">
+          <div>
+            <div className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-primary">
+              <span className="h-px w-6 bg-primary/60" />
+              Creative workflow intelligence
+            </div>
+            <div className="mt-6 flex items-start gap-5">
+              <h2 className="font-display text-5xl font-semibold leading-none text-foreground md:text-6xl">
+                ReInvent <span className="text-gradient-warm">Studio</span>
+              </h2>
+              <div aria-hidden="true" className="relative mt-1 hidden h-12 w-12 shrink-0 md:block">
+                <span
+                  className="absolute -inset-4 rounded-full opacity-40 blur-xl"
+                  style={{
+                    background: "conic-gradient(from 210deg, #36dede, #fa8072, #36dede)",
+                  }}
+                />
+                <span
+                  className="absolute inset-0 rounded-full p-px"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, rgba(54,222,222,.9), rgba(250,128,114,.75))",
+                  }}
+                >
+                  <span className="block h-full w-full rounded-full bg-black" />
+                </span>
+              </div>
+            </div>
+            <p className="mt-6 max-w-xl text-xl leading-8 text-foreground/85">
+              Faster creative operations without surrendering creative judgment.
+            </p>
           </div>
-          <div className="relative mt-5 flex items-start gap-4">
-            <h2 className="font-display text-4xl font-semibold leading-[1.05] text-foreground md:text-6xl">
-              ReInvent{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(110deg, #6ee7d8 0%, #ffffff 45%, #fa8072 100%)",
-                }}
-              >
-                Studio
-              </span>
-            </h2>
-            {/* sparkle orb near heading */}
-            <span
-              aria-hidden
-              className="relative mt-3 hidden h-10 w-10 md:inline-block"
-            >
-              <span
-                className="absolute inset-0 rounded-full blur-md"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, #6ee7d8, #fa8072, #a78bfa, #6ee7d8)",
-                  animation: "orb-pulse 3s ease-in-out infinite",
-                }}
-              />
-              <span className="absolute inset-1 rounded-full bg-background/70 backdrop-blur" />
-              <Sparkles className="absolute inset-0 m-auto h-4 w-4 text-foreground" />
-            </span>
-          </div>
-          <p className="mt-5 max-w-3xl text-base text-foreground/85 md:text-lg">
-            Turn a plain marketing brief into a full AI-powered campaign concept —
-            visuals, captions, scripts, and measurable A/B tests.
-          </p>
-          <p className="mt-3 max-w-3xl text-sm text-muted-foreground md:text-base">
-            ReInvent Studio is an experimental open-source creative AI tool from
-            ReInvent AI Labs. It helps creators, small businesses, and studios
-            transform rough ideas into polished campaign directions with strategy,
-            media concepts, and analytics built in.
+          <p className="max-w-2xl leading-7 text-muted-foreground lg:pb-1">
+            ReInvent Studio is a planned AI-native workflow for photographers and creative studios
+            managing high-volume event libraries. It is being designed around customer-discovered
+            pain in culling, search, organization, grouping, and delivery—with human taste preserved
+            as the system’s final authority.
           </p>
         </div>
 
-        {/* Demo card with gradient border */}
-        <div className="relative mt-12">
-          <div
-            aria-hidden
-            className="absolute -inset-px rounded-[22px] opacity-80"
-            style={{
-              background:
-                "linear-gradient(130deg, #6ee7d8 0%, #fa8072 50%, #a78bfa 100%)",
-              filter: "blur(0.5px)",
-            }}
-          />
-          <div className="relative rounded-[21px] border border-white/10 bg-background/70 p-1 backdrop-blur-xl">
-            <div className="rounded-[18px] bg-[oklch(0.15_0.008_240)/0.7] p-6 md:p-8">
-              <div className="grid gap-6 md:grid-cols-2">
-                {/* Input panel */}
-                <div className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-display text-sm uppercase tracking-[0.18em] text-foreground/80">
-                      Input Brief
-                    </h3>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
-                      editable
-                    </span>
-                  </div>
-                  <textarea
-                    value={brief}
-                    onChange={(e) => setBrief(e.target.value)}
-                    className="mt-4 min-h-[180px] w-full resize-none rounded-xl border border-white/10 bg-background/60 p-4 font-mono text-[13px] leading-relaxed text-foreground outline-none transition focus:border-primary/50 focus:shadow-[0_0_0_3px_color-mix(in_oklab,var(--primary)_18%,transparent)]"
-                  />
-                  <button
-                    onClick={() => setRevealed(true)}
-                    className="group mt-5 inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-primary-foreground transition hover:scale-[1.01]"
-                    style={{
-                      background:
-                        "linear-gradient(120deg, #6ee7d8 0%, #ffffff 55%, #fa8072 100%)",
-                      boxShadow:
-                        "0 10px 40px -12px color-mix(in oklab, var(--primary) 50%, transparent), 0 0 0 1px rgba(255,255,255,0.12) inset",
-                    }}
-                  >
-                    <Wand2 className="h-4 w-4" />
-                    Generate Campaign
-                    <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                  </button>
-                </div>
+        <div className="premium-panel mt-14 overflow-hidden">
+          <div className="flex flex-col gap-3 border-b border-white/10 px-6 py-5 sm:flex-row sm:items-center sm:justify-between md:px-8">
+            <div>
+              <div className="text-xs uppercase tracking-[0.18em] text-foreground/75">
+                Event workspace
+              </div>
+              <div className="mt-1 text-xs text-muted-foreground">
+                Discovery interface · concept preview
+              </div>
+            </div>
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/12 px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+              Human review active
+            </span>
+          </div>
 
-                {/* Output panel */}
-                <div className="relative flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-display text-sm uppercase tracking-[0.18em] text-foreground/80">
-                      AI Campaign Output
-                    </h3>
-                    <span className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-[color:var(--accent-salmon)]">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent-salmon)]" />
-                      {revealed ? "generated" : "preview"}
-                    </span>
+          <div className="grid lg:grid-cols-[0.78fr_1.22fr]">
+            <div className="border-b border-white/10 p-6 md:p-8 lg:border-b-0 lg:border-r">
+              <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                Session intelligence
+              </div>
+              <dl className="mt-7 space-y-0">
+                {sessionRows.map(([value, label]) => (
+                  <div
+                    key={label}
+                    className="flex items-end justify-between gap-4 border-t border-white/10 py-5 first:border-t-0 first:pt-0"
+                  >
+                    <dt className="text-sm text-muted-foreground">{label}</dt>
+                    <dd className="font-display text-2xl text-foreground">{value}</dd>
                   </div>
-                  <div className="mt-4 flex flex-col gap-3">
-                    {outputCards.map((c, i) => (
+                ))}
+              </dl>
+              <div className="mt-7 rounded-xl border border-white/10 p-5">
+                <div className="flex items-center gap-3">
+                  <Images className="h-4 w-4 text-primary" />
+                  <span className="text-sm text-foreground">Context groups</span>
+                </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {["Family", "Ceremony", "Candids"].map((group) => (
+                    <span
+                      key={group}
+                      className="rounded-full border border-white/12 px-3 py-1.5 text-xs text-muted-foreground"
+                    >
+                      {group}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 md:p-8">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
+                    Assisted review
+                  </div>
+                  <h3 className="mt-2 font-display text-2xl text-foreground">
+                    One decision at a time.
+                  </h3>
+                </div>
+                <span className="font-mono text-xs text-muted-foreground">184 / 1,312</span>
+              </div>
+
+              <div className="relative mt-8 min-h-[280px] overflow-hidden rounded-2xl border border-white/12 bg-black p-6 md:min-h-[340px] md:p-8">
+                <div
+                  aria-hidden="true"
+                  className="absolute left-1/2 top-1/2 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-25 blur-3xl"
+                  style={{ background: "linear-gradient(135deg, #36dede, #fa8072)" }}
+                />
+                <div className="relative flex h-full min-h-[230px] flex-col justify-between">
+                  <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                    <span>Frame 0184</span>
+                    <span>High-confidence grouping</span>
+                  </div>
+                  <div className="mx-auto grid h-28 w-28 place-items-center rounded-full border border-white/15 bg-black/80 font-display text-3xl text-foreground shadow-[0_0_50px_rgba(54,222,222,.08)]">
+                    01
+                  </div>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      ["Reject", "←"],
+                      ["Maybe", "↓"],
+                      ["Keep", "→"],
+                    ].map(([label, key]) => (
                       <div
-                        key={c.label}
-                        className={`rounded-xl border p-4 transition ${toneClasses(
-                          c.tone,
-                        )} ${
-                          revealed
-                            ? "animate-fade-in opacity-100"
-                            : "opacity-70"
-                        }`}
-                        style={{
-                          animationDelay: revealed ? `${i * 90}ms` : undefined,
-                          animationFillMode: "both",
-                        }}
+                        key={label}
+                        className="rounded-xl border border-white/10 px-3 py-3 text-center"
                       >
-                        <div className="text-[10px] font-mono uppercase tracking-[0.18em] opacity-80">
-                          {c.label}
-                        </div>
-                        <div className="mt-1.5 text-[13.5px] leading-relaxed text-foreground/95">
-                          {c.body}
+                        <div className="text-xs text-foreground/80">{label}</div>
+                        <div className="mt-1 font-mono text-[10px] text-muted-foreground">
+                          {key}
                         </div>
                       </div>
                     ))}
@@ -241,69 +170,30 @@ export function ReinventStudio() {
           </div>
         </div>
 
-        {/* Why it matters */}
-        <div className="mt-16">
-          <div className="text-xs font-mono uppercase tracking-[0.25em] text-[color:var(--accent-salmon)]">
-            Why it matters
-          </div>
-          <div className="mt-5 grid gap-4 md:grid-cols-3">
-            {features.map((f) => {
-              const Icon = f.icon;
-              return (
-                <div
-                  key={f.title}
-                  className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur transition hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white/[0.05]"
-                >
-                  <div
-                    className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, color-mix(in oklab, var(--primary) 25%, transparent), #fa807233)",
-                    }}
-                  >
-                    <Icon className="h-5 w-5 text-foreground" />
-                  </div>
-                  <h4 className="mt-4 font-display text-lg text-foreground">
-                    {f.title}
-                  </h4>
-                  <p className="mt-2 text-sm text-muted-foreground">{f.body}</p>
-                </div>
-              );
-            })}
-          </div>
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {workflow.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article key={item.title} className="border-t border-white/15 pt-6">
+                <Icon className="h-5 w-5 text-primary" />
+                <h3 className="mt-5 font-display text-xl text-foreground">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.body}</p>
+              </article>
+            );
+          })}
         </div>
 
-        {/* CTA */}
-        <div className="mt-14 flex flex-col items-start gap-4">
-          <div className="flex flex-wrap gap-3">
-            <button
-              onClick={() => setRevealed(true)}
-              className="inline-flex items-center gap-2 rounded-xl px-5 py-3 text-sm font-medium text-primary-foreground transition hover:scale-[1.01]"
-              style={{
-                background:
-                  "linear-gradient(120deg, #6ee7d8 0%, #ffffff 60%, #fa8072 100%)",
-                boxShadow:
-                  "0 10px 40px -12px color-mix(in oklab, var(--primary) 55%, transparent)",
-              }}
-            >
-              <Sparkles className="h-4 w-4" />
-              View Demo
-            </button>
-            <a
-              href="https://github.com/reinvent-ai-labs"
-              target="_blank"
-              rel="noreferrer"
-              aria-disabled
-              className="inline-flex cursor-not-allowed items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 text-sm font-medium text-muted-foreground transition hover:border-[color:var(--accent-salmon)]/40 hover:text-foreground"
-            >
-              Open Source Coming Soon
-            </a>
-          </div>
-          <p className="max-w-2xl text-xs text-muted-foreground md:text-sm">
-            ReInvent Studio is part of ReInvent AI Labs&apos; broader mission to
-            build human-facing AI infrastructure for creators, businesses, and
-            intelligent media systems.
+        <div className="mt-12 flex flex-col gap-5 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+            Current stage: customer discovery and workflow validation. Capabilities shown are
+            product direction, not production claims.
           </p>
+          <Link
+            to="/contact"
+            className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-primary hover:text-foreground"
+          >
+            Discuss a studio workflow <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

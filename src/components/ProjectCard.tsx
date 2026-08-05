@@ -18,15 +18,21 @@ export function ProjectCard({ project }: { project: Project }) {
 
       <dl className="mt-6 grid grid-cols-1 gap-3 text-sm">
         <div className="flex gap-3">
-          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">Problem</dt>
+          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">
+            Problem
+          </dt>
           <dd className="text-foreground/90">{project.problem}</dd>
         </div>
         <div className="flex gap-3">
-          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">System</dt>
+          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">
+            System
+          </dt>
           <dd className="text-foreground/90">{project.systemType}</dd>
         </div>
         <div className="flex gap-3">
-          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">Tech</dt>
+          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">
+            Tech
+          </dt>
           <dd className="font-mono text-xs text-foreground/80">{project.techFocus}</dd>
         </div>
       </dl>
@@ -42,31 +48,32 @@ export function ProjectCard({ project }: { project: Project }) {
         ))}
       </div>
 
-      <div className="mt-auto flex flex-wrap items-center gap-3 pt-6 text-sm">
+      <div className="mt-auto flex flex-wrap items-center gap-3 pt-8 text-sm">
         {project.href ? (
-          <Link
-            to={project.href}
-            className="text-[color:var(--accent-salmon)] transition-colors hover:text-foreground"
-          >
+          <Link to={project.href} className="text-primary transition-colors hover:text-foreground">
             View project →
           </Link>
         ) : null}
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noreferrer"
-          className="text-muted-foreground transition-colors hover:text-foreground"
-        >
-          GitHub
-        </a>
-        <a
-          href={project.docs}
-          target="_blank"
-          rel="noreferrer"
-          className="text-muted-foreground transition-colors hover:text-foreground"
-        >
-          Docs
-        </a>
+        {project.github ? (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            GitHub
+          </a>
+        ) : null}
+        {project.docs ? (
+          <a
+            href={project.docs}
+            target="_blank"
+            rel="noreferrer"
+            className="text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Docs
+          </a>
+        ) : null}
         {project.demo ? (
           <a
             href={project.demo}
