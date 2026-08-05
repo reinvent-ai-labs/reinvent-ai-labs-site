@@ -6,61 +6,39 @@ export type Post = {
   description: string;
 };
 
-export const postCategories = [
-  "Build Logs",
-  "Architecture Notes",
-  "Field Notes",
-  "Release Notes",
-  "Design Philosophy",
-];
+export const postCategories = ["Field Notes", "Architecture", "Product", "Responsible AI"];
 
 export const posts: Post[] = [
   {
-    slug: "why-im-building-reinvent-ai-labs",
-    title: "Why I’m Building ReInvent AI Labs",
+    slug: "intelligence-value-resources",
+    title: "Intelligence Should Create More Value Than It Consumes",
+    category: "Responsible AI",
+    date: "In development",
+    description:
+      "The operating thesis behind resource-aware AI systems and measurable operational value.",
+  },
+  {
+    slug: "start-with-workflow",
+    title: "Start With the Workflow, Not the Model",
     category: "Field Notes",
-    date: "Coming soon",
+    date: "In development",
     description:
-      "The mission behind building open-source AI/data systems before monetization.",
+      "Why customer interviews and process mapping should happen before architecture selection.",
   },
   {
-    slug: "rag-is-not-enough",
-    title: "RAG Is Not Enough",
-    category: "Architecture Notes",
-    date: "Coming soon",
+    slug: "rowan-structured-actions",
+    title: "Rowan: From Conversation to Validated Action",
+    category: "Architecture",
+    date: "In development",
     description:
-      "Why small teams need workflow intelligence, not another generic chatbot.",
+      "A look at session state, structured extraction, schema validation, clarification, and confirmation.",
   },
   {
-    slug: "designing-geometric-voice-interfaces",
-    title: "Designing Geometric Voice Interfaces",
-    category: "Design Philosophy",
-    date: "Coming soon",
+    slug: "preserving-human-taste",
+    title: "Preserving Human Taste in AI-Assisted Culling",
+    category: "Product",
+    date: "Research direction",
     description:
-      "How motion, shapes, and state-based UI can communicate voice-agent processing.",
-  },
-  {
-    slug: "building-developer-first-ai-infrastructure",
-    title: "Building Developer-First AI Infrastructure",
-    category: "Build Logs",
-    date: "Coming soon",
-    description:
-      "Lessons from API-first systems, open-source adoption, and workflow design.",
-  },
-  {
-    slug: "voice-prototype-v0",
-    title: "ReInvent Voice v0 — Prototype Build Log",
-    category: "Release Notes",
-    date: "Coming soon",
-    description:
-      "Initial prototype scope, architecture decisions, and what’s shipping in v0.",
-  },
-  {
-    slug: "release-standard",
-    title: "The Release Standard: Every Build Ships With Proof",
-    category: "Design Philosophy",
-    date: "Coming soon",
-    description:
-      "Demo, repo, docs, article, evals, adoption — the bar for every ReInvent release.",
+      "The product and research questions behind ReInvent Studio’s human-led creative workflow.",
   },
 ];
