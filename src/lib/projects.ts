@@ -18,10 +18,25 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "rowan",
+    name: "Rowan",
+    tagline: "Voice AI that turns business calls into completed actions.",
+    description:
+      "ReInvent AI Labs' primary product: a stateful voice-agent platform for intake, ordering, scheduling, validation, and human handoff.",
+    problem: "Missed calls and repetitive phone workflows",
+    systemType: "Conversational operations platform",
+    techFocus: "FastAPI · WebRTC · Workflow states",
+    status: "Building",
+    categories: ["Voice Agents", "Infrastructure"],
+    github: "https://github.com/reinvent-ai-labs/reinvent-voice",
+    docs: "https://github.com/reinvent-ai-labs/reinvent-voice#docs",
+    demo: "https://github.com/reinvent-ai-labs/reinvent-voice#demo",
+    href: "/projects/voice",
+  },
+  {
     slug: "reinvent-signals-atlas",
     name: "ReInvent Signals — Atlas",
-    tagline:
-      "AI-powered event discovery for churn-ready product analytics.",
+    tagline: "AI-powered event discovery for churn-ready product analytics.",
     description:
       "Atlas scans permitted SaaS product surfaces, discovers user actions, and generates a churn-ready event taxonomy with tracking plans and Postgres-ready schemas.",
     problem: "Teams don't know what behaviors to track before modeling churn",
@@ -32,23 +47,6 @@ export const projects: Project[] = [
     github: "https://github.com/reinvent-ai-labs/reinvent-signals-atlas",
     docs: "https://github.com/reinvent-ai-labs/reinvent-signals-atlas#docs",
     href: "/projects/atlas",
-  },
-  {
-    slug: "reinvent-voice",
-    name: "ReInvent Voice",
-    tagline:
-      "Open-source voice-agent infrastructure for restaurant ordering workflows.",
-    description:
-      "Developer-first voice agent engine with API-first design, workflow states, menu/order understanding, and optional UI components.",
-    problem: "Manual phone/order workflows",
-    systemType: "Voice-agent infrastructure",
-    techFocus: "FastAPI · WebRTC · Workflow states",
-    status: "Prototype",
-    categories: ["Voice Agents", "Infrastructure"],
-    github: "https://github.com/reinvent-ai-labs/reinvent-voice",
-    docs: "https://github.com/reinvent-ai-labs/reinvent-voice#docs",
-    demo: "https://github.com/reinvent-ai-labs/reinvent-voice#demo",
-    href: "/projects/voice",
   },
   {
     slug: "reinvent-ops",
@@ -83,8 +81,7 @@ export const projects: Project[] = [
   {
     slug: "reinvent-metrics",
     name: "ReInvent Metrics",
-    tagline:
-      "Open-source product analytics and churn diagnosis framework.",
+    tagline: "Open-source product analytics and churn diagnosis framework.",
     description:
       "Diagnosis framework for investigating engagement drops, retention issues, churn, cohort behavior, and funnel problems.",
     problem: "Churn and retention blind spots",
