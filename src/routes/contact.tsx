@@ -1,6 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check } from "lucide-react";
-import { Eyebrow, PageShell, Section } from "@/components/PageShell";
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -9,106 +9,137 @@ export const Route = createFileRoute("/contact")({
       {
         name: "description",
         content:
-          "Start a conversation with ReInvent AI Labs about an expensive operational workflow, an intelligent system, or a product direction.",
+          "Reach out for open-source feedback, research discussions, demo opportunities, technical collaboration, or speaking inquiries.",
       },
       { property: "og:title", content: "Contact — ReInvent AI Labs" },
       {
         property: "og:description",
-        content: "Bring us the workflow your organization should stop accepting.",
+        content:
+          "Feedback, collaboration, and open-source discussion with ReInvent AI Labs.",
       },
     ],
   }),
   component: ContactPage,
 });
 
-const firstNote = [
-  "What the workflow is and who performs it",
-  "How often the problem occurs",
-  "What it currently costs in time, revenue, errors, or experience",
-  "Which tools or systems the workflow already touches",
-  "What measurable outcome would make a solution worthwhile",
+const topics = [
+  "Feedback",
+  "Open-source collaboration",
+  "Research discussion",
+  "Speaking/demo inquiry",
+  "Other",
 ];
 
 function ContactPage() {
+  const [sent, setSent] = useState(false);
+
   return (
     <PageShell>
       <Section>
-        <Eyebrow>Start a conversation</Eyebrow>
-        <h1 className="mt-6 max-w-5xl font-display text-5xl font-semibold leading-[1.02] text-foreground md:text-7xl">
-          Bring us the workflow your organization should{" "}
-          <span className="text-gradient-warm">stop accepting.</span>
-        </h1>
-        <p className="mt-7 max-w-3xl text-lg leading-8 text-muted-foreground">
-          The best conversations begin with a concrete operational problem—not a request to “add
-          AI.” We will help determine whether the problem is worth solving, where intelligence
-          belongs, and what proof should come first.
-        </p>
-      </Section>
-
-      <section className="border-y border-white/10">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-24 md:py-32 lg:grid-cols-[1.08fr_0.92fr] lg:gap-16 lg:px-8">
-          <div className="premium-panel p-7 md:p-10">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-primary">
-              A useful first note includes
-            </div>
-            <ul className="mt-8 space-y-5">
-              {firstNote.map((item) => (
-                <li key={item} className="flex gap-4 text-sm leading-6 text-foreground/85">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex flex-col justify-between rounded-[1.25rem] border border-white/15 p-7 md:p-10">
-            <div>
-              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                Best fit right now
-              </div>
-              <h2 className="mt-5 font-display text-3xl text-foreground md:text-4xl">
-                Local and regional operations with visible, repeated friction.
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-muted-foreground">
-                ReInvent is initially focused on organizations in Alpharetta and the broader Atlanta
-                area, especially businesses managing repetitive calls, inquiries, appointments,
-                orders, intake, or internal knowledge work.
-              </p>
-            </div>
-            <div className="mt-12 border-t border-white/10 pt-7">
-              <p className="text-xs leading-5 text-muted-foreground">
-                The verified public inquiry address is being finalized. No unconfirmed email or
-                placeholder social account is published on this site.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-4">
-                <a
-                  href="https://github.com/reinvent-ai-labs"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-foreground"
-                >
-                  View GitHub <ArrowRight className="h-4 w-4" />
-                </a>
-                <Link
-                  to="/team"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground"
-                >
-                  Meet the team
-                </Link>
-              </div>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+          <div>
+            <Eyebrow>Contact</Eyebrow>
+            <h1 className="mt-4 font-display text-4xl text-foreground md:text-5xl">
+              Start a <span className="text-gradient-tiffany">conversation.</span>
+            </h1>
+            <p className="mt-6 text-muted-foreground">
+              For open-source feedback, research discussions, demo opportunities,
+              technical collaboration, or speaking inquiries, reach out below.
+            </p>
+            <div className="mt-10 space-y-4 text-sm">
+              <a
+                href="https://github.com/reinvent-ai-labs"
+                target="_blank"
+                rel="noreferrer"
+                className="card-surface card-hover block p-4"
+              >
+                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">GitHub</div>
+                <div className="mt-1 text-foreground">github.com/reinvent-ai-labs</div>
+              </a>
+              <a
+                href="https://medium.com/@YOUR_HANDLE"
+                target="_blank"
+                rel="noreferrer"
+                className="card-surface card-hover block p-4"
+              >
+                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Medium</div>
+                <div className="mt-1 text-foreground">medium.com/@YOUR_HANDLE</div>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/YOUR_LINKEDIN"
+                target="_blank"
+                rel="noreferrer"
+                className="card-surface card-hover block p-4"
+              >
+                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">LinkedIn</div>
+                <div className="mt-1 text-foreground">linkedin.com/in/YOUR_LINKEDIN</div>
+              </a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <Section>
-        <div className="text-center">
-          <Eyebrow>Let&apos;s ReInvent the Future.</Eyebrow>
-          <h2 className="mx-auto mt-6 max-w-3xl font-display text-4xl leading-tight text-foreground md:text-5xl">
-            Operational intelligence, responsibly engineered.
-          </h2>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSent(true);
+            }}
+            className="card-surface space-y-5 p-7 md:p-10"
+          >
+            <Field label="Name">
+              <input
+                required
+                type="text"
+                className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
+                placeholder="Your name"
+              />
+            </Field>
+            <Field label="Email">
+              <input
+                required
+                type="email"
+                className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
+                placeholder="you@domain.com"
+              />
+            </Field>
+            <Field label="Topic">
+              <select
+                className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
+                defaultValue={topics[0]}
+              >
+                {topics.map((t) => (
+                  <option key={t} value={t}>{t}</option>
+                ))}
+              </select>
+            </Field>
+            <Field label="Message">
+              <textarea
+                required
+                rows={6}
+                className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
+                placeholder="What would you like to discuss?"
+              />
+            </Field>
+            <button
+              type="submit"
+              className="w-full rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
+            >
+              {sent ? "Message captured — thank you" : "Send Message"}
+            </button>
+            <p className="text-xs text-muted-foreground">
+              ReInvent AI Labs is currently focused on public open-source systems,
+              technical writing, and developer feedback.
+            </p>
+          </form>
         </div>
       </Section>
     </PageShell>
+  );
+}
+
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{label}</span>
+      <div className="mt-2">{children}</div>
+    </label>
   );
 }
