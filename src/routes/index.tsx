@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 import { NeuralBackground } from "@/components/NeuralBackground";
-import { VoiceOrb } from "@/components/VoiceOrb";
+import { RowanVoiceDemo } from "@/components/RowanVoiceDemo";
 import { ProjectCard } from "@/components/ProjectCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { LogoMarquee } from "@/components/LogoMarquee";
@@ -286,25 +286,30 @@ function Home() {
 
       {/* Primary product: Rowan */}
       <Section>
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="flex flex-wrap items-center gap-3">
               <Eyebrow>Primary product</Eyebrow>
+
               <span className="rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-primary">
                 In development
               </span>
             </div>
+
             <h2 className="mt-5 font-display text-4xl text-foreground md:text-6xl">
               Meet <span className="text-gradient-tiffany">Rowan.</span>
             </h2>
+
             <p className="mt-4 text-lg text-[color:var(--accent-salmon)]">
               Voice AI that turns business calls into completed actions.
             </p>
+
             <p className="mt-6 max-w-2xl text-muted-foreground">
               Rowan is ReInvent AI Labs&apos; primary product: a conversational operations platform
               designed for ordering, scheduling, intake, validation, integrations, analytics, and
               dependable human handoff.
             </p>
+
             <ul className="mt-8 grid gap-3 text-sm text-foreground/90 sm:grid-cols-2">
               {[
                 "Structured workflow state",
@@ -320,6 +325,7 @@ function Home() {
                 </li>
               ))}
             </ul>
+
             <Link
               to="/projects/voice"
               className="mt-8 inline-flex rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
@@ -327,7 +333,13 @@ function Home() {
               Explore Rowan
             </Link>
           </div>
-          <VoiceOrb />
+
+          {/* Live Rowan conversation → JSON → POS demo */}
+          <div className="relative flex w-full items-center justify-center">
+            <div className="relative w-full max-w-[500px] overflow-hidden bg-black">
+              <RowanVoiceDemo />
+            </div>
+          </div>
         </div>
       </Section>
 
@@ -339,15 +351,18 @@ function Home() {
           <div className="mx-auto">
             <Eyebrow tone="salmon">Designed for</Eyebrow>
           </div>
+
           <h2 className="mx-auto max-w-3xl font-display text-3xl text-foreground md:text-4xl">
             Built for organizations turning AI into{" "}
             <span className="text-gradient-warm">operational systems.</span>
           </h2>
+
           <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
             ReInvent AI Labs is designed for teams that need self-hostable AI/data infrastructure,
             workflow intelligence, and developer-first integration patterns.
           </p>
         </div>
+
         <div className="mt-14">
           <LogoMarquee />
         </div>
@@ -357,15 +372,18 @@ function Home() {
       {/* PRIVATE MOCKUP ONLY: replace fake testimonials before public launch. */}
       <Section>
         <Eyebrow>Early reviewers</Eyebrow>
+
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-2xl font-display text-3xl text-foreground md:text-4xl">
             What reviewers are saying
           </h2>
+
           <p className="max-w-xl text-sm text-muted-foreground">
             Feedback from engineers, founders, advisors, and operators reviewing the ReInvent AI
             Labs direction.
           </p>
         </div>
+
         <div className="mt-10">
           <TestimonialCarousel items={testimonials} />
         </div>
@@ -374,22 +392,29 @@ function Home() {
       {/* Future adoption layer */}
       <Section>
         <Eyebrow tone="salmon">Adoption layer</Eyebrow>
+
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
           Designed for adoption, <span className="text-gradient-warm">not dependency.</span>
         </h2>
+
         <p className="mt-6 max-w-3xl text-muted-foreground">
           ReInvent systems are built to run in the user&apos;s own environment through Docker
           images, registries, SDKs, APIs, example repos, and cloud-native deployment guides.
         </p>
+
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {adoptionLayer.map((a, i) => (
             <div key={a.title} className="card-surface card-hover p-6">
               <div
-                className={`font-mono text-xs ${i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"}`}
+                className={`font-mono text-xs ${
+                  i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"
+                }`}
               >
                 A/0{i + 1}
               </div>
+
               <div className="mt-3 font-display text-lg text-foreground">{a.title}</div>
+
               <p className="mt-2 text-sm text-muted-foreground">{a.body}</p>
             </div>
           ))}
@@ -400,16 +425,20 @@ function Home() {
       <Section>
         <div className="card-surface relative overflow-hidden p-10 md:p-14">
           <div className="absolute inset-0 grid-bg opacity-20" />
+
           <div className="relative">
             <Eyebrow>Implementation proof</Eyebrow>
+
             <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
               Every system ships with{" "}
               <span className="text-gradient-warm">implementation proof.</span>
             </h2>
+
             <p className="mt-6 max-w-3xl text-muted-foreground">
               Each ReInvent release is designed to include code, documentation, examples, video
               walkthroughs, and technical writing.
             </p>
+
             <ul className="mt-10 grid gap-3 sm:grid-cols-2">
               {implementationProof.map((item) => (
                 <li
@@ -430,24 +459,31 @@ function Home() {
       {/* Thesis */}
       <Section>
         <Eyebrow tone="salmon">The thesis</Eyebrow>
+
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
           AI demos are easy.{" "}
           <span className="text-gradient-warm">Deployable systems are hard.</span>
         </h2>
+
         <p className="mt-6 max-w-3xl text-muted-foreground">
           Most teams do not need another generic chatbot. They need reliable systems that connect
           documents, data, workflows, APIs, evaluation, and deployment. ReInvent AI Labs exists to
           build open-source infrastructure that developers can integrate, adapt, and extend.
         </p>
+
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {painPoints.map((p, i) => (
             <div key={p.title} className="card-surface card-hover p-6">
               <div
-                className={`font-mono text-xs ${i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"}`}
+                className={`font-mono text-xs ${
+                  i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"
+                }`}
               >
                 0{i + 1}
               </div>
+
               <div className="mt-3 font-display text-lg text-foreground">{p.title}</div>
+
               <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
             </div>
           ))}
@@ -457,14 +493,17 @@ function Home() {
       {/* System Library */}
       <Section>
         <Eyebrow tone="salmon">System library</Eyebrow>
+
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-2xl font-display text-3xl text-foreground md:text-4xl">
             The ReInvent AI Labs System Library
           </h2>
+
           <Link to="/projects" className="text-sm text-primary hover:text-foreground">
             View all projects →
           </Link>
         </div>
+
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <ProjectCard key={p.slug} project={p} />
@@ -475,19 +514,23 @@ function Home() {
       {/* Developer-first */}
       <Section>
         <Eyebrow>Developer-first</Eyebrow>
+
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
           Built for integration, <span className="text-gradient-tiffany">not lock-in.</span>
         </h2>
+
         <p className="mt-6 max-w-3xl text-muted-foreground">
           ReInvent AI Labs is not designed as another closed dashboard. Each system is built as
           open-source infrastructure: APIs, SDK concepts, workflow engines, optional UI components,
           documentation, and deployment guides that developers can adapt into their own
           environments.
         </p>
+
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {devFirst.map((f) => (
             <div key={f} className="card-surface card-hover flex items-center gap-3 p-4">
               <span className="h-2 w-2 rounded-full bg-primary" />
+
               <span className="text-sm text-foreground/90">{f}</span>
             </div>
           ))}
@@ -499,9 +542,11 @@ function Home() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
           <div>
             <Eyebrow tone="salmon">Architecture philosophy</Eyebrow>
+
             <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
               Built like software, <span className="text-gradient-warm">not demos.</span>
             </h2>
+
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {architecture.map((a) => (
                 <li key={a} className="card-surface flex items-center gap-3 p-3 text-sm">
@@ -511,6 +556,7 @@ function Home() {
               ))}
             </ul>
           </div>
+
           <SystemDiagram />
         </div>
       </Section>
@@ -518,18 +564,24 @@ function Home() {
       {/* Release Standard */}
       <Section>
         <Eyebrow>Release standard</Eyebrow>
+
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
           Every release ships with <span className="text-gradient-tiffany">proof.</span>
         </h2>
+
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {releaseStandard.map((r, i) => (
             <div key={r.title} className="card-surface card-hover p-6">
               <div
-                className={`font-mono text-xs ${i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"}`}
+                className={`font-mono text-xs ${
+                  i % 2 === 1 ? "text-[color:var(--accent-salmon)]" : "text-primary"
+                }`}
               >
                 R/0{i + 1}
               </div>
+
               <div className="mt-3 font-display text-lg text-foreground">{r.title}</div>
+
               <p className="mt-2 text-sm text-muted-foreground">{r.body}</p>
             </div>
           ))}
@@ -539,15 +591,18 @@ function Home() {
       {/* Lab Notes */}
       <Section>
         <Eyebrow tone="salmon">Lab notes</Eyebrow>
+
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <h2 className="font-display text-3xl text-foreground md:text-4xl">
               Technical essays & build logs
             </h2>
+
             <p className="mt-3 text-muted-foreground">
               Architecture breakdowns, build logs, and research notes from ReInvent AI Labs.
             </p>
           </div>
+
           <a
             href="https://medium.com/@YOUR_HANDLE"
             target="_blank"
@@ -557,6 +612,7 @@ function Home() {
             Read on Medium
           </a>
         </div>
+
         <div className="mt-10 grid gap-5 md:grid-cols-2">
           {posts.slice(0, 4).map((p) => (
             <article key={p.slug} className="card-surface card-hover p-6">
@@ -564,10 +620,14 @@ function Home() {
                 <span className="rounded-full border border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 px-2.5 py-1 uppercase tracking-wider text-[color:var(--accent-salmon)]">
                   {p.category}
                 </span>
+
                 <span className="text-muted-foreground">{p.date}</span>
               </div>
+
               <h3 className="mt-4 font-display text-xl text-foreground">{p.title}</h3>
+
               <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
+
               <Link
                 to="/writing"
                 className="mt-5 inline-block text-sm text-primary hover:text-foreground"
@@ -583,15 +643,19 @@ function Home() {
       <Section>
         <div className="card-surface relative overflow-hidden p-10 md:p-14">
           <div className="absolute inset-0 grid-bg opacity-20" />
+
           <div className="relative max-w-3xl">
             <Eyebrow>Our Team</Eyebrow>
+
             <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
               Small team. Senior attention. Clear accountability.
             </h2>
+
             <p className="mt-6 text-muted-foreground">
               ReInvent connects product thinking, applied AI, customer discovery, and disciplined
               execution through one close operating team.
             </p>
+
             <Link
               to="/team"
               className="mt-8 inline-flex rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground hover:border-primary/50 hover:text-primary"
@@ -606,16 +670,20 @@ function Home() {
       <Section>
         <div className="card-surface relative overflow-hidden p-10 text-center md:p-16">
           <div className="absolute inset-0 grid-bg opacity-20" />
+
           <div className="relative">
             <Eyebrow tone="salmon">Contact</Eyebrow>
+
             <h2 className="mx-auto mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
               Feedback, collaboration, and{" "}
               <span className="text-gradient-warm">open-source discussion.</span>
             </h2>
+
             <p className="mx-auto mt-6 max-w-2xl text-muted-foreground">
               ReInvent AI Labs is currently focused on public open-source systems, technical
               writing, research exploration, and developer feedback.
             </p>
+
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link
                 to="/contact"
@@ -623,6 +691,7 @@ function Home() {
               >
                 Send Message
               </Link>
+
               <a
                 href="https://github.com/reinvent-ai-labs"
                 target="_blank"
@@ -650,13 +719,16 @@ function SystemDiagram() {
   return (
     <div className="card-surface relative overflow-hidden p-7 md:p-9">
       <div className="absolute inset-0 grid-bg opacity-20" />
+
       <div className="relative">
         <div className="flex items-center justify-between border-b border-border pb-4">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">
             System architecture
           </span>
+
           <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_14px_var(--primary)]" />
         </div>
+
         <div className="mt-6 space-y-3">
           {stages.map((stage, index) => (
             <div key={stage.label} className="grid grid-cols-[auto_1fr] gap-5">
@@ -664,10 +736,13 @@ function SystemDiagram() {
                 <span className="grid h-8 w-8 place-items-center rounded-full border border-primary/35 bg-background font-mono text-[10px] text-primary">
                   0{index + 1}
                 </span>
+
                 {index < stages.length - 1 ? <span className="h-full w-px bg-border" /> : null}
               </div>
+
               <div className="mb-2 rounded-md border border-border bg-background/70 p-4">
                 <div className="font-display text-sm text-foreground">{stage.label}</div>
+
                 <div className="mt-1 font-mono text-[11px] text-muted-foreground">
                   {stage.detail}
                 </div>
