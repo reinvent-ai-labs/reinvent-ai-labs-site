@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
@@ -11,177 +12,161 @@ import { posts } from "@/lib/posts";
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: [
-      {
-        title: "ReInvent AI Labs — Open-source AI/data systems",
-      },
-      {
-        name: "description",
-        content:
-          "AI consulting, intelligent systems, and Rowan voice automation for real operational workflows.",
-      },
-      {
-        property: "og:title",
-        content: "ReInvent AI Labs — Open-source AI/data systems",
-      },
-      {
-        property: "og:description",
-        content:
-          "Open-source AI/data systems for real operational workflows. Let’s ReInvent the Future.",
-      },
-    ],
+    meta: pageMetadata(
+      "Robotics and embodied intelligence",
+      "Independent open-source research in robotics, embodied intelligence, spatial representations and efficient AI systems.",
+    ),
   }),
   component: Home,
 });
 
 const earlySignals = [
-  { value: "Primary", label: "Rowan voice agent", sub: "Conversational operations" },
-  { value: "06", label: "Technical notes", sub: "Build logs & architecture essays" },
-  { value: "API-first", label: "Integration-ready", sub: "Designed for developers" },
-  { value: "Private build", label: "Status", sub: "Preparing public release" },
+  {
+    value: "Robotics",
+    label: "Embodied intelligence",
+    sub: "Planning and manipulation",
+  },
+  {
+    value: "Compute",
+    label: "Efficient AI",
+    sub: "Inference under hardware limits",
+  },
+  {
+    value: "Space",
+    label: "Spatial intelligence",
+    sub: "Maps shaped by embodiment",
+  },
+  {
+    value: "Field",
+    label: "Extreme environments",
+    sub: "Control under uncertainty",
+  },
 ];
 
-// PRIVATE MOCKUP CONTENT — replace all logos and testimonials before public launch.
-// Realistic but fake reviewer identities; no real individuals referenced.
-const testimonials = [
+const researchQuestions = [
   {
+    name: "Embodied intelligence and robotics",
     quote:
-      "ReInvent AI Labs has the structure of a serious developer infrastructure practice: clean APIs, strong documentation, and a clear understanding of operational AI.",
-    name: "Managing Director",
-    role: "Data & AI Transformation",
+      "How does a manipulation policy change when the gripper or camera moves? Compare vision-language-action (VLA) architectures, reinforcement learning and imitation learning with kinematics, Jacobians and motion planning.",
+    role: "Dexterous and bimanual manipulation · Multi-agent coordination · Aerial and mobile robotics",
   },
   {
+    name: "Efficient AI and computational systems",
     quote:
-      "The strongest part is the developer-first model. Self-hostable systems, example repos, and deployment guides make this much easier to evaluate than another closed AI dashboard.",
-    name: "Principal Engineer",
-    role: "Enterprise Platforms",
+      "Where does inference spend its memory budget? Profile custom CUDA kernels, compare GPU execution paths and test how distillation and quantization change accuracy on embedded hardware.",
+    role: "Edge AI · Hardware-aware architectures · Performance benchmarking",
   },
   {
+    name: "Spatial intelligence",
     quote:
-      "This feels like the right bridge between open-source software and practical business workflows. The churn, document intelligence, and voice-agent directions are all commercially relevant.",
-    name: "Startup Advisor",
-    role: "B2B SaaS & Analytics",
+      "Which parts of a scene need fine detail for a particular robot to navigate or manipulate an object? Study adaptive fidelity in 3D Gaussian Splatting under a fixed reconstruction budget.",
+    role: "Embodiment-conditioned representations · Autonomous perception · Interactive maps",
   },
   {
+    name: "Extreme-environment robotics",
     quote:
-      "The Rowan concept is memorable because it combines infrastructure thinking with a polished interaction language. It feels technical and product-aware.",
-    name: "Product Leader",
-    role: "AI Workflow Systems",
-  },
-  {
-    quote:
-      "Most AI projects stop at the demo. This approach focuses on deployment, integration, observability, and repeatable implementation patterns.",
-    name: "Cloud Architect",
-    role: "Enterprise Systems",
-  },
-  {
-    quote:
-      "ReInvent Metrics could become extremely useful for teams that need modular churn, retention, funnel, and cohort analysis without starting from scratch.",
-    name: "Analytics Director",
-    role: "Customer Intelligence",
-  },
-  {
-    quote:
-      "The visual brand is premium, but the important part is the release standard: repo, docs, Docker, example implementation, video, and technical article.",
-    name: "Open-source Reviewer",
-    role: "Developer Experience",
-  },
-  {
-    quote:
-      "This is the kind of public technical track record that can compound for years into a serious consulting and systems practice.",
-    name: "Business Advisor",
-    role: "Technology Strategy",
+      "How do policies respond to changes in gravity, sensing and available compute? Use reduced-gravity simulation to study environment-conditioned manipulation and fault-tolerant perception and control.",
+    role: "Planetary exploration · Resource-constrained autonomy",
   },
 ];
 
 const adoptionLayer = [
   {
-    title: "Self-hostable",
-    body: "Runs in the organization's own cloud or server environment.",
+    title: "ROS 2 packages",
+    body: "Document topics, frames, message types and launch files so another robot can use a component.",
   },
   {
-    title: "Registry-ready",
-    body: "Docker images and packages can be pulled directly into existing infrastructure.",
+    title: "Reference libraries",
+    body: "Provide a minimal implementation and a versioned environment for each released method.",
   },
   {
-    title: "Developer-first",
-    body: "APIs, SDKs, docs, webhooks, and example repos make integration easier.",
+    title: "Model weights",
+    body: "Identify the checkpoint, training data, upstream license and supported hardware.",
   },
   {
-    title: "Evidence-generating",
-    body: "Optional anonymous telemetry, GitHub activity, downloads, and adoption links create a public proof trail.",
+    title: "Experiment runners",
+    body: "Include configurations and commands for reproducing a baseline and comparing a variant.",
   },
 ];
 
 const implementationProof = [
-  "Main GitHub repo",
-  "Example implementation repo",
-  "Docker image / registry package",
-  "README quickstart",
-  "Cloud deployment guide",
-  "Loom walkthrough",
-  "Medium article",
-  "ReInvent website article",
-  "Architecture diagram",
-  "Release notes",
+  "Physical or simulated demonstration",
+  "Hardware and sensor configuration",
+  "Software versions and seeds",
+  "Experiment procedure",
+  "Baseline implementation",
+  "Metrics and trial counts",
+  "Ablation results",
+  "Failure cases and limitations",
+  "Datasets and checkpoints",
+  "Versioned code and reproduction commands",
 ];
 
 const painPoints = [
   {
-    title: "Document Chaos",
-    body: "Teams lose time searching PDFs, policies, manuals, notes, and internal docs.",
+    title: "Embodiment",
+    body: "A grasp that succeeds with one wrist can fail with another. Vary the mechanism and record where the policy breaks.",
   },
   {
-    title: "Workflow Fragmentation",
-    body: "Important processes are scattered across spreadsheets, forms, emails, and human memory.",
+    title: "Compute budget",
+    body: "Measure latency and peak memory alongside task success on the hardware that executes the policy.",
   },
   {
-    title: "Analytics Blind Spots",
-    body: "Teams collect data but lack repeatable systems for diagnosing drops, churn, and bottlenecks.",
+    title: "Transfer",
+    body: "Compare the same controller in MuJoCo or NVIDIA Isaac Sim and on physical hardware. Record changes in sensing, timing and contact.",
   },
   {
-    title: "AI Deployment Gap",
-    body: "Prototypes work in demos but fail when they need APIs, evals, logging, and real integration.",
+    title: "Reliability",
+    body: "Report failed trials and recovery behavior alongside successful runs.",
   },
 ];
 
 const devFirst = [
-  "API-first systems",
-  "Self-hostable infrastructure",
-  "Optional UI components",
-  "Workflow templates",
-  "Developer documentation",
-  "Evaluation-ready AI",
-  "Modular architecture",
-  "Open-source by default",
+  "Robot geometry",
+  "Sensor placement",
+  "Actuator limits",
+  "Power budget",
+  "Memory footprint",
+  "Inference latency",
+  "Control frequency",
+  "Task success",
 ];
 
 const architecture = [
-  "Modular APIs",
-  "Reproducible local setup",
-  "Clean documentation",
-  "Cloud deployment guides",
-  "Evaluation harnesses",
-  "Workflow templates",
-  "Versioned releases",
-  "Open-source by default",
+  "ROS 2 interfaces",
+  "Explicit coordinate frames",
+  "Hardware abstraction",
+  "Bounded memory",
+  "State estimation",
+  "Motion planning",
+  "Fault detection",
+  "Replayable sensor traces",
 ];
 
 const releaseStandard = [
-  { title: "Working demo", body: "A usable implementation, not just a concept." },
-  { title: "GitHub repository", body: "Clean code, commits, issues, and versioned releases." },
-  { title: "Documentation", body: "Setup guides, architecture notes, and integration examples." },
   {
-    title: "Technical article",
-    body: "Lab Notes explaining the problem, system design, and lessons.",
+    title: "Research record",
+    body: "Give the title, status, publication date and last revision. Identify RAL contributions and credit external or university-affiliated work.",
   },
   {
-    title: "Evaluation path",
-    body: "Clear metrics for reliability, latency, quality, and workflow usefulness.",
+    title: "Question and hypothesis",
+    body: "State the problem, prediction and observation that would count against it.",
   },
   {
-    title: "Adoption trail",
-    body: "Space for testimonials, integrations, forks, stars, and external usage.",
+    title: "Foundations",
+    body: "Describe the mathematical model, architecture and original contribution. Cite upstream models, hardware and implementations.",
+  },
+  {
+    title: "Experiment",
+    body: "Document the hardware, software, datasets, protocol and physical or simulated conditions.",
+  },
+  {
+    title: "Comparisons",
+    body: "Report baselines, quantitative results, ablations, failure cases and known limitations where applicable.",
+  },
+  {
+    title: "Artifacts",
+    body: "Link available GitHub repositories, papers, datasets, model checkpoints and demonstrations to the release.",
   },
 ];
 
@@ -197,22 +182,24 @@ function Home() {
           <div className="grid items-center gap-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:gap-16 xl:gap-24">
             {/* Left: hero copy */}
             <div className="min-w-0">
-              <Eyebrow>Open-source AI/data systems lab</Eyebrow>
+              <Eyebrow>Independent research laboratory</Eyebrow>
 
               <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.05] text-foreground md:text-6xl xl:text-7xl">
-                Open-source AI/data systems for{" "}
-                <span className="text-gradient-warm">real operational workflows.</span>
+                Open-source research in robotics,{" "}
+                <span className="text-gradient-warm">
+                  embodied intelligence, and computational systems.
+                </span>
               </h1>
 
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                ReInvent AI Labs builds developer-first software, APIs, reference architectures, and
-                technical documentation for workflow intelligence, document automation, voice
-                agents, and applied machine learning systems.
+                Developing intelligent systems that perceive, reason, and act efficiently in the
+                physical world through reproducible research, rigorous experimentation, and open
+                engineering.
               </p>
 
               <p className="mt-6 font-display text-lg">
-                <span className="text-primary">Let&apos;s ReInvent</span>{" "}
-                <span className="text-[color:var(--accent-salmon)]">the Future.</span>
+                <span className="text-primary">Perception, planning</span>{" "}
+                <span className="text-[color:var(--accent-salmon)]">and control.</span>
               </p>
 
               <div className="mt-10 flex flex-wrap gap-3">
@@ -263,10 +250,10 @@ function Home() {
             </div>
           </div>
 
-          {/* Early Signals stays below both columns */}
+          {/* Research areas stays below both columns */}
           <div className="mt-16">
             <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              Early Signals
+              Research areas
             </div>
 
             <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -284,30 +271,29 @@ function Home() {
         </div>
       </div>
 
-      {/* Primary product: Rowan */}
+      {/* Historical software demonstration */}
       <Section>
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="flex flex-wrap items-center gap-3">
-              <Eyebrow>Primary product</Eyebrow>
+              <Eyebrow>From the software archive</Eyebrow>
 
               <span className="rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-primary">
-                In development
+                Scripted demonstration
               </span>
             </div>
 
             <h2 className="mt-5 font-display text-4xl text-foreground md:text-6xl">
-              Meet <span className="text-gradient-tiffany">Rowan.</span>
+              Inside <span className="text-gradient-tiffany">Rowan.</span>
             </h2>
 
             <p className="mt-4 text-lg text-[color:var(--accent-salmon)]">
-              Voice AI that turns business calls into completed actions.
+              From spoken requests to structured records.
             </p>
 
             <p className="mt-6 max-w-2xl text-muted-foreground">
-              Rowan is ReInvent AI Labs&apos; primary product: a conversational operations platform
-              designed for ordering, scheduling, intake, validation, integrations, analytics, and
-              dependable human handoff.
+              This animation traces a sample order through Rowan, an earlier RAL voice-interface
+              design. Watch how each turn changes the order state before the final handoff.
             </p>
 
             <ul className="mt-8 grid gap-3 text-sm text-foreground/90 sm:grid-cols-2">
@@ -334,7 +320,7 @@ function Home() {
             </Link>
           </div>
 
-          {/* Live Rowan conversation → JSON → POS demo */}
+          {/* Scripted conversation and order trace */}
           <div className="relative flex w-full items-center justify-center">
             <div className="relative w-full max-w-[500px] overflow-hidden bg-black">
               <RowanVoiceDemo />
@@ -344,22 +330,19 @@ function Home() {
       </Section>
 
       {/* Orgs / Logo wall */}
-      {/* PRIVATE MOCKUP ONLY: replace company logos and fake testimonials before public launch. */}
-      {/* Do not publish this section with fake logos or testimonials. */}
       <Section className="!py-20">
         <div className="flex flex-col gap-3 text-center">
           <div className="mx-auto">
-            <Eyebrow tone="salmon">Designed for</Eyebrow>
+            <Eyebrow tone="salmon">Research methods</Eyebrow>
           </div>
 
           <h2 className="mx-auto max-w-3xl font-display text-3xl text-foreground md:text-4xl">
-            Built for organizations turning AI into{" "}
-            <span className="text-gradient-warm">operational systems.</span>
+            Tools for studying <span className="text-gradient-warm">physical intelligence.</span>
           </h2>
 
           <p className="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
-            ReInvent AI Labs is designed for teams that need self-hostable AI/data infrastructure,
-            workflow intelligence, and developer-first integration patterns.
+            The agenda spans robot control, simulation, spatial representations and inference on
+            embedded hardware.
           </p>
         </div>
 
@@ -368,24 +351,23 @@ function Home() {
         </div>
       </Section>
 
-      {/* Testimonials */}
-      {/* PRIVATE MOCKUP ONLY: replace fake testimonials before public launch. */}
+      {/* Research questions */}
       <Section>
-        <Eyebrow>Early reviewers</Eyebrow>
+        <Eyebrow>Research directions</Eyebrow>
 
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-2xl font-display text-3xl text-foreground md:text-4xl">
-            What reviewers are saying
+            Questions guiding the lab
           </h2>
 
           <p className="max-w-xl text-sm text-muted-foreground">
-            Feedback from engineers, founders, advisors, and operators reviewing the ReInvent AI
-            Labs direction.
+            These four directions describe the research agenda. Published experiments and their
+            evidence belong in the archive.
           </p>
         </div>
 
         <div className="mt-10">
-          <TestimonialCarousel items={testimonials} />
+          <TestimonialCarousel items={researchQuestions} />
         </div>
       </Section>
 
@@ -394,12 +376,12 @@ function Home() {
         <Eyebrow tone="salmon">Adoption layer</Eyebrow>
 
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
-          Designed for adoption, <span className="text-gradient-warm">not dependency.</span>
+          Sharing code, models and{" "}
+          <span className="text-gradient-warm">experiment configurations.</span>
         </h2>
 
         <p className="mt-6 max-w-3xl text-muted-foreground">
-          ReInvent systems are built to run in the user&apos;s own environment through Docker
-          images, registries, SDKs, APIs, example repos, and cloud-native deployment guides.
+          The artifact depends on the experiment. These are the forms a research release can take.
         </p>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -430,13 +412,12 @@ function Home() {
             <Eyebrow>Implementation proof</Eyebrow>
 
             <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
-              Every system ships with{" "}
-              <span className="text-gradient-warm">implementation proof.</span>
+              What makes an experiment <span className="text-gradient-warm">reproducible?</span>
             </h2>
 
             <p className="mt-6 max-w-3xl text-muted-foreground">
-              Each ReInvent release is designed to include code, documentation, examples, video
-              walkthroughs, and technical writing.
+              A demonstration records what happened. The accompanying release should let a reader
+              repeat the trial and examine why it succeeded or failed.
             </p>
 
             <ul className="mt-10 grid gap-3 sm:grid-cols-2">
@@ -466,9 +447,8 @@ function Home() {
         </h2>
 
         <p className="mt-6 max-w-3xl text-muted-foreground">
-          Most teams do not need another generic chatbot. They need reliable systems that connect
-          documents, data, workflows, APIs, evaluation, and deployment. ReInvent AI Labs exists to
-          build open-source infrastructure that developers can integrate, adapt, and extend.
+          Physical robots and simulators give us a way to test algorithms. Changing one condition at
+          a time helps isolate which assumptions a policy, controller or map depends on.
         </p>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -496,7 +476,7 @@ function Home() {
 
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <h2 className="max-w-2xl font-display text-3xl text-foreground md:text-4xl">
-            The ReInvent AI Labs System Library
+            System Library · historical software
           </h2>
 
           <Link to="/projects" className="text-sm text-primary hover:text-foreground">
@@ -513,17 +493,16 @@ function Home() {
 
       {/* Developer-first */}
       <Section>
-        <Eyebrow>Developer-first</Eyebrow>
+        <Eyebrow>Hardware–software integration</Eyebrow>
 
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
-          Built for integration, <span className="text-gradient-tiffany">not lock-in.</span>
+          What changes when a policy{" "}
+          <span className="text-gradient-tiffany">moves to hardware?</span>
         </h2>
 
         <p className="mt-6 max-w-3xl text-muted-foreground">
-          ReInvent AI Labs is not designed as another closed dashboard. Each system is built as
-          open-source infrastructure: APIs, SDK concepts, workflow engines, optional UI components,
-          documentation, and deployment guides that developers can adapt into their own
-          environments.
+          Describe the robot and its operating limits alongside the model. These variables help
+          explain differences between simulated and physical trials.
         </p>
 
         <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -544,7 +523,7 @@ function Home() {
             <Eyebrow tone="salmon">Architecture philosophy</Eyebrow>
 
             <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
-              Built like software, <span className="text-gradient-warm">not demos.</span>
+              From sensor input to <span className="text-gradient-warm">robot action.</span>
             </h2>
 
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -566,7 +545,7 @@ function Home() {
         <Eyebrow>Release standard</Eyebrow>
 
         <h2 className="mt-4 max-w-3xl font-display text-3xl text-foreground md:text-5xl">
-          Every release ships with <span className="text-gradient-tiffany">proof.</span>
+          What belongs in a <span className="text-gradient-tiffany">research release?</span>
         </h2>
 
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -595,22 +574,21 @@ function Home() {
         <div className="mt-4 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div className="max-w-2xl">
             <h2 className="font-display text-3xl text-foreground md:text-4xl">
-              Technical essays & build logs
+              Lab Notes in preparation
             </h2>
 
             <p className="mt-3 text-muted-foreground">
-              Architecture breakdowns, build logs, and research notes from ReInvent AI Labs.
+              Planned entries from the editorial archive. Publication dates appear when notes are
+              released.
             </p>
           </div>
 
-          <a
-            href="https://medium.com/@YOUR_HANDLE"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            to="/writing"
             className="rounded-md border border-border px-4 py-2 text-sm text-foreground hover:border-primary/50 hover:text-primary"
           >
-            Read on Medium
-          </a>
+            All Lab Notes
+          </Link>
         </div>
 
         <div className="mt-10 grid gap-5 md:grid-cols-2">
@@ -632,7 +610,7 @@ function Home() {
                 to="/writing"
                 className="mt-5 inline-block text-sm text-primary hover:text-foreground"
               >
-                Read more →
+                View planned notes →
               </Link>
             </article>
           ))}
@@ -648,12 +626,11 @@ function Home() {
             <Eyebrow>Our Team</Eyebrow>
 
             <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
-              Small team. Senior attention. Clear accountability.
+              Research and engineering at RAL
             </h2>
 
             <p className="mt-6 text-muted-foreground">
-              ReInvent connects product thinking, applied AI, customer discovery, and disciplined
-              execution through one close operating team.
+              The lab connects experiment design, robotics software and hardware evaluation.
             </p>
 
             <Link
@@ -680,8 +657,8 @@ function Home() {
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-muted-foreground">
-              ReInvent AI Labs is currently focused on public open-source systems, technical
-              writing, research exploration, and developer feedback.
+              RAL welcomes academic and industry discussion of shared experiments, baseline
+              implementations and independent replication.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-3">
@@ -689,7 +666,7 @@ function Home() {
                 to="/contact"
                 className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
               >
-                Send Message
+                Discuss research
               </Link>
 
               <a
@@ -710,10 +687,10 @@ function Home() {
 
 function SystemDiagram() {
   const stages = [
-    { label: "Inputs", detail: "Voice · Data · Documents" },
-    { label: "Intelligence", detail: "State · Retrieval · Models" },
-    { label: "Controls", detail: "Validation · Evals · Policy" },
-    { label: "Outcomes", detail: "Actions · APIs · Analytics" },
+    { label: "Inputs", detail: "Cameras · Encoders · IMUs" },
+    { label: "Intelligence", detail: "Pose · Scene · Uncertainty" },
+    { label: "Controls", detail: "Plan · Policy · Feedback" },
+    { label: "Outcomes", detail: "Motion · Contact · Recovery" },
   ];
 
   return (

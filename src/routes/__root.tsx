@@ -92,21 +92,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "viewport",
         content: "width=device-width, initial-scale=1",
       },
+      { property: "og:image", content: "https://www.reinventailabs.com/reinvent-ai-labs-logo.png" },
       {
-        title: "ReInvent AI Labs — Open-source AI/data systems",
-      },
-      {
-        name: "description",
-        content:
-          "ReInvent AI Labs builds open-source AI/data systems, developer-first infrastructure, and reference architectures for real operational workflows.",
-      },
-      {
-        property: "og:title",
-        content: "ReInvent AI Labs",
-      },
-      {
-        property: "og:description",
-        content: "Intelligent AI systems for real operational workflows.",
+        name: "twitter:image",
+        content: "https://www.reinventailabs.com/reinvent-ai-labs-logo.png",
       },
       {
         property: "og:type",

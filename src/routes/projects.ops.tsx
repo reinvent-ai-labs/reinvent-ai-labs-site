@@ -1,21 +1,13 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 
 export const Route = createFileRoute("/projects/ops")({
   head: () => ({
-    meta: [
-      { title: "ReInvent Ops — Open-source AI workflow intelligence" },
-      {
-        name: "description",
-        content:
-          "ReInvent Ops is a reference architecture for turning documents, spreadsheets, and recurring reports into searchable, automated workflows.",
-      },
-      { property: "og:title", content: "ReInvent Ops — ReInvent AI Labs" },
-      {
-        property: "og:description",
-        content: "Open-source AI workflow intelligence for small teams.",
-      },
-    ],
+    meta: pageMetadata(
+      "ReInvent Ops · software archive",
+      "An archived reference design for document ingestion, retrieval and repeatable reporting.",
+    ),
   }),
   component: OpsPage,
 });
@@ -35,13 +27,11 @@ function OpsPage() {
   return (
     <PageShell>
       <Section>
-        <Eyebrow>Project · Workflow intelligence</Eyebrow>
+        <Eyebrow>Software archive · Reference architecture</Eyebrow>
         <h1 className="mt-6 font-display text-5xl text-foreground md:text-6xl">
           ReInvent <span className="text-gradient-tiffany">Ops</span>
         </h1>
-        <p className="mt-4 text-lg text-primary">
-          Open-source AI workflow intelligence for small teams.
-        </p>
+        <p className="mt-4 text-lg text-primary">A reference design for repeatable reporting.</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           <Block title="Problem">
             <p className="text-muted-foreground">
@@ -58,26 +48,18 @@ function OpsPage() {
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href="https://github.com/reinvent-ai-labs/reinvent-ops"
+            href="https://github.com/reinvent-ai-labs/reinvent-ai-labs-site/blob/dbf61b86da848f5451edf77139a5e24956632d63/src/routes/projects.ops.tsx"
             target="_blank"
             rel="noreferrer"
             className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
           >
-            GitHub
-          </a>
-          <a
-            href="https://github.com/reinvent-ai-labs/reinvent-ops#docs"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
-          >
-            Docs
+            Archived page source
           </a>
         </div>
       </Section>
 
       <Section className="!py-12">
-        <Eyebrow>Modules</Eyebrow>
+        <Eyebrow>Proposed modules</Eyebrow>
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {modules.map((m, i) => (
             <div key={m.title} className="card-surface card-hover p-5">

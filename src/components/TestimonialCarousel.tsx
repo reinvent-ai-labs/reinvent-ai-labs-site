@@ -1,7 +1,5 @@
-// PRIVATE MOCKUP ONLY: replace fake testimonials before public launch.
-// Do not publish this section with fake testimonials.
 import { useCallback, useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { ChevronLeft, ChevronRight, Compass } from "lucide-react";
 
 export type Testimonial = {
   quote: string;
@@ -26,14 +24,8 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
   const maxIndex = Math.max(0, items.length - perView);
   const clamped = Math.min(index, maxIndex);
 
-  const prev = useCallback(
-    () => setIndex((i) => (i <= 0 ? maxIndex : i - 1)),
-    [maxIndex],
-  );
-  const next = useCallback(
-    () => setIndex((i) => (i >= maxIndex ? 0 : i + 1)),
-    [maxIndex],
-  );
+  const prev = useCallback(() => setIndex((i) => (i <= 0 ? maxIndex : i - 1)), [maxIndex]);
+  const next = useCallback(() => setIndex((i) => (i >= maxIndex ? 0 : i + 1)), [maxIndex]);
 
   return (
     <div className="relative">
@@ -45,25 +37,18 @@ export function TestimonialCarousel({ items }: { items: Testimonial[] }) {
           }}
         >
           {items.map((t, i) => (
-            <div
-              key={i}
-              className="shrink-0 px-3"
-              style={{ width: `${100 / perView}%` }}
-            >
+            <div key={i} className="shrink-0 px-3" style={{ width: `${100 / perView}%` }}>
               <figure className="card-surface card-hover relative h-full p-7">
                 <div
                   className="absolute left-0 top-7 h-10 w-[2px] rounded-r"
                   style={{
-                    background:
-                      "linear-gradient(180deg, var(--primary) 0%, #fa8072 100%)",
+                    background: "linear-gradient(180deg, var(--primary) 0%, #fa8072 100%)",
                   }}
                 />
-                <Quote
+                <Compass
                   className={`h-5 w-5 ${i % 2 === 1 ? "text-[color:var(--accent-salmon)]/80" : "text-primary/70"}`}
                 />
-                <blockquote className="mt-4 text-foreground/90 leading-relaxed">
-                  {t.quote}
-                </blockquote>
+                <p className="mt-4 text-foreground/90 leading-relaxed">{t.quote}</p>
                 <figcaption className="mt-6 border-t border-border pt-4 text-sm">
                   <div className="text-foreground">{t.name}</div>
                   <div className="text-muted-foreground">{t.role}</div>
