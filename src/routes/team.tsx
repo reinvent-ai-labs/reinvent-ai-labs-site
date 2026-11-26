@@ -1,16 +1,13 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { Eyebrow, PageShell, Section } from "@/components/PageShell";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
-    meta: [
-      { title: "Our Team — ReInvent AI Labs" },
-      {
-        name: "description",
-        content:
-          "Meet the multidisciplinary team behind ReInvent AI Labs' consulting and intelligent systems work.",
-      },
-    ],
+    meta: pageMetadata(
+      "Research and engineering",
+      "How RAL approaches algorithm design, hardware integration and reproducible experiments.",
+    ),
   }),
   component: TeamPage,
 });
@@ -18,17 +15,22 @@ export const Route = createFileRoute("/team")({
 const teamFunctions = [
   {
     number: "01",
-    title: "Product & Engineering",
-    role: "Discovery · Architecture · Applied AI",
-    body: "Connects customer workflows to product direction and technical delivery—from system boundaries and data contracts to evaluation and deployment.",
-    focus: ["Customer discovery", "Product strategy", "AI systems", "Technical delivery"],
+    title: "Robotics and algorithms",
+    role: "Perception · Planning · Control",
+    body: "The research question determines the experiment. Isolate the effect of a controller, policy or scene representation by changing one variable and comparing against a baseline.",
+    focus: ["Robot embodiment", "Motion planning", "Policy learning", "Spatial representations"],
   },
   {
     number: "02",
-    title: "Operations & Growth",
-    role: "Research · Coordination · Market Development",
-    body: "Keeps customer insight, research, partnerships, and execution aligned so every product direction is grounded in a real operational need.",
-    focus: ["Market research", "Operations", "Partnerships", "Execution systems"],
+    title: "Systems and evaluation",
+    role: "Hardware · Software · Measurement",
+    body: "A result depends on the machine that produced it. Record the sensor layout, compute budget, software versions and trial conditions so others can repeat the comparison.",
+    focus: [
+      "Embedded inference",
+      "Hardware integration",
+      "Benchmark design",
+      "Open implementations",
+    ],
   },
 ];
 
@@ -38,12 +40,12 @@ function TeamPage() {
       <Section>
         <Eyebrow>Our Team</Eyebrow>
         <h1 className="mt-4 max-w-4xl font-display text-4xl text-foreground md:text-6xl">
-          Built across disciplines.{" "}
-          <span className="text-gradient-tiffany">Aligned on outcomes.</span>
+          How the lab approaches{" "}
+          <span className="text-gradient-tiffany">research and engineering.</span>
         </h1>
         <p className="mt-6 max-w-3xl text-muted-foreground">
-          ReInvent brings product thinking, applied AI, customer discovery, and disciplined
-          execution into one close operating team.
+          RAL brings algorithm design and systems evaluation into the same experiment. These are the
+          responsibilities that connect the two.
         </p>
 
         <div className="mt-14 space-y-6">

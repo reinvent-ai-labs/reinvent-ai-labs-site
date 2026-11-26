@@ -1,21 +1,13 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 
 export const Route = createFileRoute("/projects/docs")({
   head: () => ({
-    meta: [
-      { title: "ReInvent Docs — Document intelligence infrastructure" },
-      {
-        name: "description",
-        content:
-          "ReInvent Docs provides open-source document intelligence patterns for ingestion, chunking, retrieval, grounded Q&A, evaluation, and deployment.",
-      },
-      { property: "og:title", content: "ReInvent Docs — ReInvent AI Labs" },
-      {
-        property: "og:description",
-        content: "Document intelligence infrastructure for searchable knowledge workflows.",
-      },
-    ],
+    meta: pageMetadata(
+      "ReInvent Docs · software archive",
+      "A planned document retrieval architecture preserved in RAL’s software archive.",
+    ),
   }),
   component: DocsPage,
 });
@@ -33,7 +25,7 @@ function DocsPage() {
   return (
     <PageShell>
       <Section>
-        <Eyebrow>Project · Document AI</Eyebrow>
+        <Eyebrow>Software archive · Planned design</Eyebrow>
         <h1 className="mt-6 font-display text-5xl text-foreground md:text-6xl">
           ReInvent <span className="text-gradient-tiffany">Docs</span>
         </h1>
@@ -49,33 +41,25 @@ function DocsPage() {
           </Block>
           <Block title="Solution">
             <p className="text-muted-foreground">
-              ReInvent Docs provides open-source document intelligence patterns for ingestion,
+              The design proposes open-source document intelligence patterns for ingestion,
               chunking, retrieval, grounded Q&amp;A, evaluation, and deployment.
             </p>
           </Block>
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href="https://github.com/reinvent-ai-labs/reinvent-docs"
+            href="https://github.com/reinvent-ai-labs/reinvent-ai-labs-site/blob/dbf61b86da848f5451edf77139a5e24956632d63/src/routes/projects.docs.tsx"
             target="_blank"
             rel="noreferrer"
             className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
           >
-            GitHub
-          </a>
-          <a
-            href="https://github.com/reinvent-ai-labs/reinvent-docs#docs"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-md border border-border px-5 py-3 text-sm hover:border-primary/50 hover:text-primary"
-          >
-            Docs
+            Archived page source
           </a>
         </div>
       </Section>
 
       <Section className="!py-12">
-        <Eyebrow>Pipeline</Eyebrow>
+        <Eyebrow>Proposed pipeline</Eyebrow>
         <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {pipeline.map((m, i) => (
             <div key={m.title} className="card-surface card-hover p-5">

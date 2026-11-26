@@ -1,23 +1,13 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
-    meta: [
-      { title: "Contact — ReInvent AI Labs" },
-      {
-        name: "description",
-        content:
-          "Reach out for open-source feedback, research discussions, demo opportunities, technical collaboration, or speaking inquiries.",
-      },
-      { property: "og:title", content: "Contact — ReInvent AI Labs" },
-      {
-        property: "og:description",
-        content:
-          "Feedback, collaboration, and open-source discussion with ReInvent AI Labs.",
-      },
-    ],
+    meta: pageMetadata(
+      "Research collaboration",
+      "Discuss replication, robotics research and open-source contributions with ReInvent AI Laboratories.",
+    ),
   }),
   component: ContactPage,
 });
@@ -31,8 +21,6 @@ const topics = [
 ];
 
 function ContactPage() {
-  const [sent, setSent] = useState(false);
-
   return (
     <PageShell>
       <Section>
@@ -43,8 +31,8 @@ function ContactPage() {
               Start a <span className="text-gradient-tiffany">conversation.</span>
             </h1>
             <p className="mt-6 text-muted-foreground">
-              For open-source feedback, research discussions, demo opportunities,
-              technical collaboration, or speaking inquiries, reach out below.
+              For open-source feedback, research discussions, demo opportunities, academic or
+              industry collaboration, prepare a public discussion topic below.
             </p>
             <div className="mt-10 space-y-4 text-sm">
               <a
@@ -53,26 +41,10 @@ function ContactPage() {
                 rel="noreferrer"
                 className="card-surface card-hover block p-4"
               >
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">GitHub</div>
+                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  GitHub
+                </div>
                 <div className="mt-1 text-foreground">github.com/reinvent-ai-labs</div>
-              </a>
-              <a
-                href="https://medium.com/@YOUR_HANDLE"
-                target="_blank"
-                rel="noreferrer"
-                className="card-surface card-hover block p-4"
-              >
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Medium</div>
-                <div className="mt-1 text-foreground">medium.com/@YOUR_HANDLE</div>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/YOUR_LINKEDIN"
-                target="_blank"
-                rel="noreferrer"
-                className="card-surface card-hover block p-4"
-              >
-                <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">LinkedIn</div>
-                <div className="mt-1 text-foreground">linkedin.com/in/YOUR_LINKEDIN</div>
               </a>
             </div>
           </div>
@@ -80,38 +52,54 @@ function ContactPage() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setSent(true);
+              const fields = new FormData(e.currentTarget);
+              const url = new URL(
+                "https://github.com/reinvent-ai-labs/reinvent-ai-labs-site/issues/new",
+              );
+              url.searchParams.set("title", String(fields.get("subject")));
+              url.searchParams.set(
+                "body",
+                [fields.get("topic"), fields.get("message"), fields.get("reference")]
+                  .filter(Boolean)
+                  .join("\n\n"),
+              );
+              window.location.assign(url.toString());
             }}
             className="card-surface space-y-5 p-7 md:p-10"
           >
-            <Field label="Name">
+            <Field label="Subject">
               <input
                 required
                 type="text"
                 className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
-                placeholder="Your name"
+                name="subject"
+                placeholder="Research question"
               />
             </Field>
-            <Field label="Email">
+            <Field label="Related paper or repository (optional)">
               <input
-                required
-                type="email"
+                type="url"
                 className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
-                placeholder="you@domain.com"
+                name="reference"
+                placeholder="https://"
               />
             </Field>
             <Field label="Topic">
               <select
+                name="topic"
                 className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
                 defaultValue={topics[0]}
               >
                 {topics.map((t) => (
-                  <option key={t} value={t}>{t}</option>
+                  <option key={t} value={t}>
+                    {t}
+                  </option>
                 ))}
               </select>
             </Field>
             <Field label="Message">
               <textarea
+                name="message"
                 required
                 rows={6}
                 className="w-full rounded-md border border-border bg-background px-3 py-2.5 text-sm text-foreground outline-none transition focus:border-primary/60 focus:ring-2 focus:ring-primary/20"
@@ -122,11 +110,11 @@ function ContactPage() {
               type="submit"
               className="w-full rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary/90"
             >
-              {sent ? "Message captured — thank you" : "Send Message"}
+              Review on GitHub
             </button>
             <p className="text-xs text-muted-foreground">
-              ReInvent AI Labs is currently focused on public open-source systems,
-              technical writing, and developer feedback.
+              This opens a draft GitHub issue for review. Posting it makes the discussion public.
+              Leave out private or confidential information.
             </p>
           </form>
         </div>

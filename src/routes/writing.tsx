@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
@@ -5,20 +6,10 @@ import { posts, postCategories } from "@/lib/posts";
 
 export const Route = createFileRoute("/writing")({
   head: () => ({
-    meta: [
-      { title: "Lab Notes — ReInvent AI Labs" },
-      {
-        name: "description",
-        content:
-          "Technical essays, build logs, architecture breakdowns, and research notes from ReInvent AI Labs.",
-      },
-      { property: "og:title", content: "Lab Notes — ReInvent AI Labs" },
-      {
-        property: "og:description",
-        content:
-          "Build logs, architecture notes, field notes, and release notes from the lab.",
-      },
-    ],
+    meta: pageMetadata(
+      "Lab Notes",
+      "Research findings, experiment reports, literature reviews and mathematical investigations from ReInvent AI Laboratories.",
+    ),
   }),
   component: WritingPage,
 });
@@ -32,11 +23,13 @@ function WritingPage() {
       <Section>
         <Eyebrow>Lab notes</Eyebrow>
         <h1 className="mt-4 max-w-3xl font-display text-4xl text-foreground md:text-6xl">
-          Build logs, architecture notes, <span className="text-gradient-tiffany">and research.</span>
+          Build logs, architecture notes,{" "}
+          <span className="text-gradient-tiffany">and research.</span>
         </h1>
         <p className="mt-6 max-w-2xl text-muted-foreground">
-          Technical essays and notes from building open-source AI/data systems.
-          Posts are published on Medium and mirrored here.
+          Lab Notes is the archive for experiment reports, literature reviews and mathematical
+          investigations. The entries below are unpublished outlines from the earlier software
+          program.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-2">
@@ -76,27 +69,8 @@ function WritingPage() {
               </div>
               <h3 className="mt-4 font-display text-xl text-foreground">{p.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
-              <a
-                href="https://medium.com/@YOUR_HANDLE"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-auto pt-6 text-sm text-primary hover:text-foreground"
-              >
-                Read more →
-              </a>
             </article>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <a
-            href="https://medium.com/@YOUR_HANDLE"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
-          >
-            Read on Medium
-          </a>
         </div>
       </Section>
     </PageShell>

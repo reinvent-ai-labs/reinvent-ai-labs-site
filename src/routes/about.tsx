@@ -1,46 +1,33 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
-    meta: [
-      { title: "About — ReInvent AI Labs" },
-      {
-        name: "description",
-        content:
-          "ReInvent AI Labs is an AI systems and consulting organization focused on measurable operational outcomes.",
-      },
-      { property: "og:title", content: "About — ReInvent AI Labs" },
-      {
-        property: "og:description",
-        content:
-          "AI consulting, intelligent systems, and product development for real operational workflows.",
-      },
-    ],
+    meta: pageMetadata(
+      "About the laboratory",
+      "Research principles and long-term direction of an independent robotics and computational systems laboratory.",
+    ),
   }),
   component: AboutPage,
 });
 
 const sections = [
   {
-    title: "Mission",
-    body: "Turn expensive operational friction into intelligent, measurable systems that create durable business value.",
+    title: "Open research and experimentation",
+    body: "Pose a falsifiable question, choose a baseline and describe the conditions under which another lab could repeat the experiment.",
   },
   {
-    title: "Technical Focus",
-    body: "Voice agents, workflow intelligence, data systems, evaluation, integrations, and applied machine learning infrastructure.",
+    title: "Original technology and architectures",
+    body: "Use experimental findings to guide work on robot policies, spatial representations and hardware-aware inference.",
   },
   {
-    title: "Design Philosophy",
-    body: "Technology should fit the operation. Every system begins with the workflow, earns its complexity, and is measured after deployment.",
+    title: "Academic and industry collaboration",
+    body: "Seek collaborators for replication, shared testbeds and independent evaluation. Credit each contributor and identify the institution responsible for the work.",
   },
   {
-    title: "Productized Consulting",
-    body: "High-touch discovery reveals repeated problems. Validated solutions become reusable products with faster deployment and stronger economics.",
-  },
-  {
-    title: "Responsible Infrastructure",
-    body: "Resource use, model calls, storage, latency, and cost are treated as engineering decisions—not afterthoughts.",
+    title: "Future commercialization",
+    body: "Consider commercialization only where a technology has been validated and a practical use is established.",
   },
 ];
 
@@ -50,12 +37,12 @@ function AboutPage() {
       <Section>
         <Eyebrow>About</Eyebrow>
         <h1 className="mt-4 max-w-4xl font-display text-4xl text-foreground md:text-6xl">
-          Intelligence built around the <span className="text-gradient-tiffany">operation.</span>
+          Research in the <span className="text-gradient-tiffany">physical world.</span>
         </h1>
         <p className="mt-6 max-w-3xl text-muted-foreground">
-          ReInvent AI Labs is a productized AI consulting organization. We identify costly, repeated
-          friction, engineer the smallest reliable system that resolves it, and measure the
-          operational result.
+          ReInvent AI Laboratories (RAL) is an independent, open-source research and engineering
+          laboratory investigating intelligent systems that perceive, reason, learn, and act in
+          physical environments. Its long-term direction follows four stages.
         </p>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -75,11 +62,12 @@ function AboutPage() {
           <div className="relative max-w-3xl">
             <Eyebrow>How we work</Eyebrow>
             <h2 className="mt-4 font-display text-3xl text-foreground md:text-4xl">
-              Small team. Senior attention. Clear accountability.
+              From hypothesis to hardware
             </h2>
             <p className="mt-6 text-muted-foreground">
-              Customer discovery, product direction, technical architecture, and delivery remain
-              closely connected throughout every engagement.
+              We use robots and simulators to investigate the algorithms behind a behavior. A
+              release should explain what changed, how it was measured and where the result stops
+              generalizing.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
@@ -92,7 +80,7 @@ function AboutPage() {
                 to="/contact"
                 className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
               >
-                Discuss a workflow
+                Discuss an experiment
               </Link>
             </div>
           </div>

@@ -1,24 +1,12 @@
-// PRIVATE MOCKUP ONLY: replace company logos before public launch.
-// Do not publish this section with these company names — no real affiliation implied.
-// These are text-logo style marks used for internal design visualization only.
-
 const logos = [
-  "Deloitte",
-  "Accenture",
-  "AWS",
-  "Google Cloud",
-  "Microsoft",
-  "Stripe",
-  "Snowflake",
-  "Databricks",
-  "Palantir",
-  "NVIDIA",
-  "OpenAI",
-  "Anthropic",
-  "ServiceNow",
-  "Salesforce",
-  "JPMorgan",
-  "Truist",
+  "ROS 2",
+  "MuJoCo",
+  "NVIDIA Isaac Sim",
+  "CUDA",
+  "Motion planning",
+  "Imitation learning",
+  "3D Gaussian Splatting",
+  "Sim-to-real transfer",
 ];
 
 export function LogoMarquee() {

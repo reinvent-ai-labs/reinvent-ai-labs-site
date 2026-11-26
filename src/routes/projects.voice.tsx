@@ -1,23 +1,14 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
 import { VoiceOrb } from "@/components/VoiceOrb";
 
 export const Route = createFileRoute("/projects/voice")({
   head: () => ({
-    meta: [
-      { title: "Rowan — Conversational operations by ReInvent AI Labs" },
-      {
-        name: "description",
-        content:
-          "Rowan turns business calls into validated actions, structured records, and operational intelligence.",
-      },
-      { property: "og:title", content: "Rowan — ReInvent AI Labs" },
-      {
-        property: "og:description",
-        content:
-          "Conversational operations for ordering, scheduling, intake, and service workflows.",
-      },
-    ],
+    meta: pageMetadata(
+      "Rowan · software archive",
+      "A historical RAL voice-interface experiment illustrated with a scripted order and proposed state transitions.",
+    ),
   }),
   component: VoicePage,
 });
@@ -41,44 +32,28 @@ function VoicePage() {
   return (
     <PageShell>
       <Section>
-        <Eyebrow>Primary product · Voice AI</Eyebrow>
+        <Eyebrow>Software archive · Rowan design</Eyebrow>
         <div className="mt-6 grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-start">
           <div>
             <h1 className="font-display text-5xl text-foreground md:text-6xl">
               <span className="text-gradient-tiffany">Rowan</span>
             </h1>
             <p className="mt-4 text-lg text-primary">
-              Business calls converted into validated actions and operational intelligence.
+              A historical experiment in conversational state.
             </p>
             <p className="mt-6 text-muted-foreground">
-              Rowan is designed for organizations with repetitive but important phone workflows. It
-              combines structured state, validation, integrations, analytics, and dependable human
-              escalation in one conversational operations layer.
+              First documented as ReInvent Voice in June 2026 and as Rowan in August 2026, the
+              archived design follows a spoken order from intake to confirmation. The API and
+              roadmap below describe the proposed architecture.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="https://github.com/reinvent-ai-labs/reinvent-voice"
+                href="https://github.com/reinvent-ai-labs/reinvent-ai-labs-site/blob/dbf61b86da848f5451edf77139a5e24956632d63/src/routes/projects.voice.tsx"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
               >
-                GitHub
-              </a>
-              <a
-                href="https://github.com/reinvent-ai-labs/reinvent-voice#docs"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground hover:border-primary/50 hover:text-primary"
-              >
-                Docs
-              </a>
-              <a
-                href="https://github.com/reinvent-ai-labs/reinvent-voice#demo"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-md border border-border px-5 py-3 text-sm font-medium text-foreground hover:border-primary/50 hover:text-primary"
-              >
-                Demo
+                Archived page source
               </a>
             </div>
           </div>
@@ -96,8 +71,9 @@ function VoicePage() {
           </Block>
           <Block title="Solution">
             <p className="text-muted-foreground">
-              Rowan provides a voice-agent engine with API-first design, workflow state management,
-              menu/order understanding, optional UI components, and integration-ready architecture.
+              The design proposes a voice-agent engine with API-first design, workflow state
+              management, menu/order understanding, optional UI components, and integration-ready
+              architecture.
             </p>
           </Block>
         </div>
@@ -183,22 +159,22 @@ function VoicePage() {
           <div className="card-surface p-6">
             <div className="font-display text-lg text-foreground">Drop-in API</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Plug Rowan into your existing backend through REST and webhook surfaces — no UI
-              lock-in.
+              The proposed backend interface uses REST calls and webhooks to carry validated order
+              records.
             </p>
           </div>
           <div className="card-surface p-6">
             <div className="font-display text-lg text-foreground">Optional UI kit</div>
             <p className="mt-2 text-sm text-muted-foreground">
-              Geometric voice-state components you can render in your own admin dashboard or
-              customer interface.
+              The prototype uses geometric cues to distinguish listening, processing and response
+              states.
             </p>
           </div>
         </div>
       </Section>
 
       <Section className="!py-12">
-        <Eyebrow>Roadmap</Eyebrow>
+        <Eyebrow>Historical roadmap</Eyebrow>
         <div className="mt-6 card-surface divide-y divide-border">
           {roadmap.map((r) => (
             <div key={r.phase} className="flex items-center gap-6 p-5">

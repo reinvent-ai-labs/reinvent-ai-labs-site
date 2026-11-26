@@ -16,17 +16,26 @@ export function ProjectCard({ project }: { project: Project }) {
         </span>
       </div>
 
+      <p className="mt-4 text-xs text-muted-foreground">
+        First recorded under this name · <time dateTime={project.recorded}>{project.recorded}</time>
+      </p>
       <dl className="mt-6 grid grid-cols-1 gap-3 text-sm">
         <div className="flex gap-3">
-          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">Problem</dt>
+          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">
+            Problem
+          </dt>
           <dd className="text-foreground/90">{project.problem}</dd>
         </div>
         <div className="flex gap-3">
-          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">System</dt>
+          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">
+            System
+          </dt>
           <dd className="text-foreground/90">{project.systemType}</dd>
         </div>
         <div className="flex gap-3">
-          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">Tech</dt>
+          <dt className="w-24 shrink-0 text-xs uppercase tracking-wider text-muted-foreground">
+            Tech
+          </dt>
           <dd className="font-mono text-xs text-foreground/80">{project.techFocus}</dd>
         </div>
       </dl>
@@ -51,32 +60,17 @@ export function ProjectCard({ project }: { project: Project }) {
             View project →
           </Link>
         ) : null}
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noreferrer"
-          className="text-muted-foreground transition-colors hover:text-foreground"
-        >
-          GitHub
-        </a>
-        <a
-          href={project.docs}
-          target="_blank"
-          rel="noreferrer"
-          className="text-muted-foreground transition-colors hover:text-foreground"
-        >
-          Docs
-        </a>
-        {project.demo ? (
+        {project.artifacts?.map(({ label, url }) => (
           <a
-            href={project.demo}
+            key={url}
+            href={url}
             target="_blank"
             rel="noreferrer"
-            className="text-muted-foreground transition-colors hover:text-foreground"
+            className="text-muted-foreground hover:text-foreground"
           >
-            Demo
+            {label}
           </a>
-        ) : null}
+        ))}
       </div>
     </div>
   );

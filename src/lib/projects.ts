@@ -1,6 +1,7 @@
 export type ProjectStatus = "Prototype" | "Planned" | "Building" | "Researching";
 
 export type Project = {
+  recorded: string;
   slug: string;
   name: string;
   tagline: string;
@@ -10,33 +11,29 @@ export type Project = {
   techFocus: string;
   status: ProjectStatus;
   categories: string[];
-  github: string;
-  docs: string;
-  demo?: string;
   href?: string;
+  artifacts?: { label: string; url: string }[];
 };
 
-export const projects: Project[] = [
+const records: Project[] = [
   {
     slug: "rowan",
+    recorded: "2026-08-05",
     name: "Rowan",
-    tagline: "Voice AI that turns business calls into completed actions.",
-    description:
-      "ReInvent AI Labs' primary product: a stateful voice-agent platform for intake, ordering, scheduling, validation, and human handoff.",
+    tagline: "A scripted voice-interface study of order state and handoff.",
+    description: "Historical design for mapping voice input to structured order records.",
     problem: "Missed calls and repetitive phone workflows",
     systemType: "Conversational operations platform",
     techFocus: "FastAPI · WebRTC · Workflow states",
     status: "Building",
     categories: ["Voice Agents", "Infrastructure"],
-    github: "https://github.com/reinvent-ai-labs/reinvent-voice",
-    docs: "https://github.com/reinvent-ai-labs/reinvent-voice#docs",
-    demo: "https://github.com/reinvent-ai-labs/reinvent-voice#demo",
     href: "/projects/voice",
   },
   {
     slug: "reinvent-signals-atlas",
+    recorded: "2026-06-13",
     name: "ReInvent Signals — Atlas",
-    tagline: "AI-powered event discovery for churn-ready product analytics.",
+    tagline: "An event-taxonomy prototype for product analytics.",
     description:
       "Atlas scans permitted SaaS product surfaces, discovers user actions, and generates a churn-ready event taxonomy with tracking plans and Postgres-ready schemas.",
     problem: "Teams don't know what behaviors to track before modeling churn",
@@ -44,14 +41,13 @@ export const projects: Project[] = [
     techFocus: "Python · LLM · Postgres · Event schema",
     status: "Prototype",
     categories: ["Analytics", "Infrastructure"],
-    github: "https://github.com/reinvent-ai-labs/reinvent-signals-atlas",
-    docs: "https://github.com/reinvent-ai-labs/reinvent-signals-atlas#docs",
     href: "/projects/atlas",
   },
   {
     slug: "reinvent-ops",
+    recorded: "2026-06-12",
     name: "ReInvent Ops",
-    tagline: "Open-source AI workflow intelligence for small teams.",
+    tagline: "Reference design for repeatable document and reporting workflows.",
     description:
       "Reference architecture for turning documents, spreadsheets, and recurring reports into searchable, automated workflows.",
     problem: "Scattered documents and recurring manual reports",
@@ -59,12 +55,11 @@ export const projects: Project[] = [
     techFocus: "Python · LangGraph · Postgres · RAG",
     status: "Building",
     categories: ["Workflow Intelligence", "Infrastructure"],
-    github: "https://github.com/reinvent-ai-labs/reinvent-ops",
-    docs: "https://github.com/reinvent-ai-labs/reinvent-ops#docs",
     href: "/projects/ops",
   },
   {
     slug: "reinvent-docs",
+    recorded: "2026-06-12",
     name: "ReInvent Docs",
     tagline: "Document intelligence infrastructure for searchable knowledge workflows.",
     description:
@@ -74,14 +69,13 @@ export const projects: Project[] = [
     techFocus: "Python · Vector DB · Chunking · Evals",
     status: "Planned",
     categories: ["Document AI", "Infrastructure"],
-    github: "https://github.com/reinvent-ai-labs/reinvent-docs",
-    docs: "https://github.com/reinvent-ai-labs/reinvent-docs#docs",
     href: "/projects/docs",
   },
   {
     slug: "reinvent-metrics",
+    recorded: "2026-06-12",
     name: "ReInvent Metrics",
-    tagline: "Open-source product analytics and churn diagnosis framework.",
+    tagline: "Planned framework for cohort analysis and churn diagnosis.",
     description:
       "Diagnosis framework for investigating engagement drops, retention issues, churn, cohort behavior, and funnel problems.",
     problem: "Churn and retention blind spots",
@@ -89,11 +83,10 @@ export const projects: Project[] = [
     techFocus: "Python · SQL · Dashboards · Cohorts",
     status: "Planned",
     categories: ["Analytics"],
-    github: "https://github.com/reinvent-ai-labs/reinvent-metrics",
-    docs: "https://github.com/reinvent-ai-labs/reinvent-metrics#docs",
   },
   {
     slug: "reinvent-evalkit",
+    recorded: "2026-06-12",
     name: "ReInvent EvalKit",
     tagline:
       "Evaluation tools for AI workflow systems, RAG quality, latency, and hallucination risk.",
@@ -104,10 +97,10 @@ export const projects: Project[] = [
     techFocus: "Python · Pytest · Trace logging",
     status: "Researching",
     categories: ["Evaluation"],
-    github: "https://github.com/reinvent-ai-labs/reinvent-evalkit",
-    docs: "https://github.com/reinvent-ai-labs/reinvent-evalkit#docs",
   },
 ];
+
+export const projects = records.sort((a, b) => b.recorded.localeCompare(a.recorded));
 
 export const statusColor: Record<ProjectStatus, string> = {
   Prototype: "border-primary/40 bg-primary/10 text-primary",

@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
@@ -6,39 +7,30 @@ import { projects, projectCategories } from "@/lib/projects";
 
 export const Route = createFileRoute("/projects/")({
   head: () => ({
-    meta: [
-      { title: "Projects — ReInvent AI Labs" },
-      {
-        name: "description",
-        content:
-          "Open-source AI/data system projects: voice agents, workflow intelligence, document AI, analytics, and evaluation tooling.",
-      },
-      { property: "og:title", content: "Projects — ReInvent AI Labs" },
-      {
-        property: "og:description",
-        content: "The ReInvent AI Labs system library: voice, ops, docs, metrics, and evals.",
-      },
-    ],
+    meta: pageMetadata(
+      "System Library",
+      "Browse RAL’s chronological record of software designs, prototypes and planned systems.",
+    ),
   }),
   component: ProjectsPage,
 });
 
 function ProjectsPage() {
   const [active, setActive] = useState<string | null>(null);
-  const filtered = active
-    ? projects.filter((p) => p.categories.includes(active))
-    : projects;
+  const filtered = active ? projects.filter((p) => p.categories.includes(active)) : projects;
 
   return (
     <PageShell>
       <Section>
         <Eyebrow>System library</Eyebrow>
         <h1 className="mt-4 max-w-3xl font-display text-4xl text-foreground md:text-6xl">
-          Open-source AI/data systems, <span className="text-gradient-tiffany">organized by problem.</span>
+          Research and software,{" "}
+          <span className="text-gradient-tiffany">in chronological order.</span>
         </h1>
         <p className="mt-6 max-w-2xl text-muted-foreground">
-          Each project ships with a problem statement, system type, tech focus,
-          GitHub repository, docs, and (where available) a demo.
+          Earlier software records appear newest first, dated by their first entry in the site
+          source. Badges show the status at the time of documentation. Robotics releases will appear
+          here as evidence becomes available.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-2">

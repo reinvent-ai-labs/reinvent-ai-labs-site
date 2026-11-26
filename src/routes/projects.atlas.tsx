@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/metadata";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { PageShell, Section, Eyebrow } from "@/components/PageShell";
@@ -16,20 +17,10 @@ import {
 
 export const Route = createFileRoute("/projects/atlas")({
   head: () => ({
-    meta: [
-      { title: "Atlas — ReInvent Signals v0.1 · ReInvent AI Labs" },
-      {
-        name: "description",
-        content:
-          "Atlas is AI-powered event discovery for churn-ready product analytics. It scans permitted SaaS surfaces, generates event taxonomies, and maps churn and retention signals.",
-      },
-      { property: "og:title", content: "Atlas — ReInvent Signals v0.1" },
-      {
-        property: "og:description",
-        content:
-          "AI-powered event discovery for churn-ready product analytics.",
-      },
-    ],
+    meta: pageMetadata(
+      "Atlas · software archive",
+      "An interactive walkthrough of the historical Atlas event-taxonomy prototype with illustrative data.",
+    ),
   }),
   component: AtlasPage,
 });
@@ -46,8 +37,7 @@ const steps: Step[] = [
   {
     n: 1,
     title: "Scan product surfaces",
-    summary:
-      "Atlas begins by scanning permitted SaaS product surfaces, routes, and pages.",
+    summary: "Atlas begins by scanning permitted SaaS product surfaces, routes, and pages.",
     expanded:
       "The system inspects approved pages, screens, and flows to understand the product layout and identify where meaningful user actions happen.",
     icon: Scan,
@@ -55,8 +45,7 @@ const steps: Step[] = [
   {
     n: 2,
     title: "Discover user actions",
-    summary:
-      "Atlas identifies buttons, forms, workflows, and other triggerable actions.",
+    summary: "Atlas identifies buttons, forms, workflows, and other triggerable actions.",
     expanded:
       "Atlas detects the interactive elements users engage with, such as Upload Document, Create Workflow, Export Report, Invite Teammate, and View Billing.",
     icon: MousePointerClick,
@@ -64,8 +53,7 @@ const steps: Step[] = [
   {
     n: 3,
     title: "Generate event taxonomy",
-    summary:
-      "Atlas uses AI to convert discovered actions into structured event definitions.",
+    summary: "Atlas uses AI to convert discovered actions into structured event definitions.",
     expanded:
       "Each discovered action is translated into a clean event taxonomy with event names, categories, and business meaning. Example event names include document_uploaded, workflow_created, and billing_page_viewed.",
     icon: Table2,
@@ -82,8 +70,7 @@ const steps: Step[] = [
   {
     n: 5,
     title: "Review and approve tracking",
-    summary:
-      "Teams can review, approve, and refine the suggested event schema.",
+    summary: "Teams can review, approve, and refine the suggested event schema.",
     expanded:
       "Instead of forcing a product team to manually invent the full event plan, Atlas provides an AI-generated draft that developers, product teams, or AI coding agents can validate and refine.",
     icon: CheckCircle2,
@@ -145,8 +132,8 @@ function AtlasPage() {
       {/* HERO */}
       <Section>
         <div className="flex flex-wrap items-center gap-2">
-          <Eyebrow>ReInvent Signals v0.1</Eyebrow>
-          <span className="badge-salmon">Alpha · v0.1</span>
+          <Eyebrow>Software archive · ReInvent Signals</Eyebrow>
+          <span className="badge-salmon">Prototype · v0.1</span>
         </div>
         <div className="mt-6 grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:items-end">
           <div>
@@ -157,25 +144,23 @@ function AtlasPage() {
               AI-powered event discovery for churn-ready product analytics.
             </p>
             <p className="mt-6 max-w-2xl text-muted-foreground">
-              Atlas helps SaaS teams understand what product behaviors they
-              should track before churn prediction, retention analytics, and
-              product intelligence become useful.
+              This historical prototype illustrates how an observed action could become a tracking
+              event. The walkthrough uses scripted events and example confidence values.
             </p>
             <div className="mt-8 rounded-lg border border-primary/30 bg-primary/5 p-4 text-sm text-foreground/90">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
                 Thesis ·{" "}
               </span>
-              Before teams can predict churn, they need to know what behaviors
-              matter.
+              Before teams can predict churn, they need to know what behaviors matter.
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="https://github.com/reinvent-ai-labs/reinvent-signals-atlas"
+                href="https://github.com/reinvent-ai-labs/reinvent-ai-labs-site/blob/dbf61b86da848f5451edf77139a5e24956632d63/src/routes/projects.atlas.tsx"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
               >
-                View GitHub
+                Archived page source
               </a>
               <Link
                 to="/writing"
@@ -200,9 +185,7 @@ function AtlasPage() {
                       key={label}
                       className="flex items-center gap-3 rounded-md border border-border bg-surface/60 p-3"
                     >
-                      <span className="font-mono text-xs text-primary">
-                        0{i + 1}
-                      </span>
+                      <span className="font-mono text-xs text-primary">0{i + 1}</span>
                       <span className="text-sm text-foreground">{label}</span>
                       <span className="ml-auto h-1.5 w-16 overflow-hidden rounded-full bg-border/50">
                         <span
@@ -229,10 +212,10 @@ function AtlasPage() {
             </h2>
           </div>
           <p className="text-muted-foreground md:text-lg">
-            Most small SaaS teams do not have the time or dedicated analytics
-            infrastructure to manually define every product event, map those
-            actions to churn and retention signals, and build the instrumentation
-            plan from scratch. Atlas is designed to automate that first layer.
+            Most small SaaS teams do not have the time or dedicated analytics infrastructure to
+            manually define every product event, map those actions to churn and retention signals,
+            and build the instrumentation plan from scratch. Atlas is designed to automate that
+            first layer.
           </p>
         </div>
       </Section>
@@ -246,8 +229,8 @@ function AtlasPage() {
               How <span className="text-gradient-tiffany">Atlas</span> Works
             </h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">
-              A step-by-step walkthrough of how Atlas turns a SaaS product
-              surface into a churn-ready event taxonomy.
+              A step-by-step walkthrough of how Atlas turns a SaaS product surface into a
+              churn-ready event taxonomy.
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -273,9 +256,7 @@ function AtlasPage() {
               )}
             </button>
             <button
-              onClick={() =>
-                setActive((a) => Math.min(steps.length - 1, a + 1))
-              }
+              onClick={() => setActive((a) => Math.min(steps.length - 1, a + 1))}
               disabled={active === steps.length - 1}
               className="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-2 text-xs text-foreground transition hover:border-primary/50 hover:text-primary disabled:opacity-40"
             >
@@ -298,7 +279,6 @@ function AtlasPage() {
 
         {/* thin cyan→salmon gradient accent line */}
         <div className="mt-3 h-px w-full gradient-line-cyan-salmon" />
-
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.1fr]">
           {/* Timeline */}
@@ -347,15 +327,11 @@ function AtlasPage() {
                     </p>
                     <div
                       className={`grid transition-all duration-300 ${
-                        isActive
-                          ? "mt-3 grid-rows-[1fr] opacity-100"
-                          : "grid-rows-[0fr] opacity-0"
+                        isActive ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <p className="text-sm text-muted-foreground">
-                          {s.expanded}
-                        </p>
+                        <p className="text-sm text-muted-foreground">{s.expanded}</p>
                       </div>
                     </div>
                   </button>
@@ -370,11 +346,9 @@ function AtlasPage() {
             <div className="relative">
               <div className="flex items-center justify-between">
                 <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">
-                  Step {active + 1} of {steps.length} · Demo preview
+                  Step {active + 1} of {steps.length} · Illustrative data
                 </div>
-                <div className="font-mono text-[11px] text-muted-foreground">
-                  atlas.preview
-                </div>
+                <div className="font-mono text-[11px] text-muted-foreground">atlas.preview</div>
               </div>
               <div className="mt-6">
                 <StepPreview index={active} />
@@ -384,8 +358,8 @@ function AtlasPage() {
         </div>
 
         <p className="mt-10 max-w-3xl text-sm text-muted-foreground">
-          Later releases build on Atlas by using approved event logs for
-          rule-based churn scoring and machine learning prediction.
+          Later releases build on Atlas by using approved event logs for rule-based churn scoring
+          and machine learning prediction.
         </p>
       </Section>
 
@@ -398,12 +372,8 @@ function AtlasPage() {
         <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {outputs.map((o, i) => (
             <div key={o.title} className="card-surface card-hover p-6">
-              <div className="font-mono text-xs text-primary">
-                0{i + 1} / OUTPUT
-              </div>
-              <div className="mt-3 font-display text-lg text-foreground">
-                {o.title}
-              </div>
+              <div className="font-mono text-xs text-primary">0{i + 1} / OUTPUT</div>
+              <div className="mt-3 font-display text-lg text-foreground">{o.title}</div>
               <p className="mt-2 text-sm text-muted-foreground">{o.body}</p>
             </div>
           ))}
@@ -418,21 +388,20 @@ function AtlasPage() {
           <div className="absolute -bottom-32 right-1/4 h-[300px] w-[420px] translate-x-1/2 rounded-full bg-[color:var(--accent-salmon)]/15 blur-[110px]" />
           <div className="relative">
             <h2 className="font-display text-3xl text-foreground md:text-5xl">
-              Map what matters{" "}
-              <span className="text-gradient-tiffany">before you model churn</span>
+              Map what matters <span className="text-gradient-tiffany">before you model churn</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-muted-foreground">
-              Atlas is the first layer of ReInvent Signals — turning product
-              surfaces into usable behavioral intelligence.
+              Atlas is the first layer of ReInvent Signals — turning product surfaces into usable
+              behavioral intelligence.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
-                href="https://github.com/reinvent-ai-labs/reinvent-signals-atlas"
+                href="https://github.com/reinvent-ai-labs/reinvent-ai-labs-site/blob/dbf61b86da848f5451edf77139a5e24956632d63/src/routes/projects.atlas.tsx"
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90"
               >
-                View GitHub
+                Archived page source
               </a>
               <Link
                 to="/writing"
@@ -471,20 +440,12 @@ function StepPreview({ index }: { index: number }) {
   }
 }
 
-const routes = [
-  "Dashboard",
-  "Documents",
-  "Workflows",
-  "Billing",
-  "Team Settings",
-];
+const routes = ["Dashboard", "Documents", "Workflows", "Billing", "Team Settings"];
 
 function PreviewScan() {
   return (
     <div className="space-y-2">
-      <div className="text-xs text-muted-foreground">
-        Scanning permitted product surfaces…
-      </div>
+      <div className="text-xs text-muted-foreground">Scanning permitted product surfaces…</div>
       <div className="space-y-2">
         {routes.map((r, i) => (
           <div
@@ -582,8 +543,16 @@ const signals = [
   { label: "Collaboration", color: "bg-sky-400/15 text-sky-300 border-sky-400/30" },
   { label: "Value Realization", color: "bg-violet-400/15 text-violet-300 border-violet-400/30" },
   // Soft Salmon — warm secondary accent on churn-adjacent signals
-  { label: "Billing Intent", color: "border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 text-[color:var(--accent-salmon)]" },
-  { label: "Friction", color: "border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 text-[color:var(--accent-salmon)]" },
+  {
+    label: "Billing Intent",
+    color:
+      "border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 text-[color:var(--accent-salmon)]",
+  },
+  {
+    label: "Friction",
+    color:
+      "border-[color:var(--accent-salmon)]/40 bg-[color:var(--accent-salmon)]/10 text-[color:var(--accent-salmon)]",
+  },
 ];
 
 function PreviewSignals() {
@@ -591,10 +560,7 @@ function PreviewSignals() {
     <div className="space-y-4">
       <div className="flex flex-wrap gap-2">
         {signals.map((s) => (
-          <span
-            key={s.label}
-            className={`rounded-full border px-3 py-1 text-xs ${s.color}`}
-          >
+          <span key={s.label} className={`rounded-full border px-3 py-1 text-xs ${s.color}`}>
             {s.label}
           </span>
         ))}
